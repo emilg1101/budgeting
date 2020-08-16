@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">AndroidAppTemplate</string>
+    <string name="title_home">Home</string>
+    <string name="title_transaction">Transaction</string>
+    <string name="title_analytics">Analytics</string>
+    <string name="title_wallets">Wallets</string>
 </resources>

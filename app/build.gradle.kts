@@ -1,6 +1,3 @@
-import Modules.implementData
-import Modules.implementDevice
-
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -12,7 +9,7 @@ android {
     compileSdkVersion(AndroidSdk.compileSdkVersion)
     buildToolsVersion(AndroidSdk.buildToolsVersion)
     defaultConfig {
-        applicationId = "com.example.template"
+        applicationId = "com.github.emilg1101.budgeting"
         minSdkVersion(AndroidSdk.minSdkVersion)
         targetSdkVersion(AndroidSdk.targetSdkVersion)
         versionCode = Versioning.version.code
@@ -20,9 +17,9 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    dataBinding {
-        isEnabled = true
-    }
+    /*buildFeatures {
+        viewBinding = true
+    }*/
 
     buildTypes {
         getByName("release") {
@@ -51,11 +48,11 @@ android {
     sourceSets {
         getByName("main").java.srcDir("src/main/kotlin")
     }
+    dynamicFeatures = mutableSetOf(":home", ":transaction", ":analytics", ":wallets")
 }
 
 dependencies {
-    implementData()
-    implementDevice()
+    implementCore()
 
     implementation(Libraries.coroutinesAndroid)
 
@@ -70,10 +67,13 @@ dependencies {
     implementation(Libraries.AndroidX.constraintlayout)
     implementation(Libraries.AndroidX.navigationFragment)
     implementation(Libraries.AndroidX.navigationUI)
+    implementation(Libraries.AndroidX.navigationDynamicFeature)
 
     implementation(Libraries.Glide.glide)
-
     kapt(Libraries.Glide.compiler)
+
+    implementation(Libraries.Dagger.dagger)
+    kapt(Libraries.Dagger.compiler)
 
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.junitAndroid)
