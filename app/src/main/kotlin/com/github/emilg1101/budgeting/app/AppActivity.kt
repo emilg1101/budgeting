@@ -19,7 +19,6 @@ class AppActivity : BottomAppActivity() {
         inject(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        setupActionBarWithNavController(findNavController(R.id.my_nav_host_fragment))
         bottomNavigationView?.setupWithNavController(findNavController(R.id.my_nav_host_fragment))
     }
 }

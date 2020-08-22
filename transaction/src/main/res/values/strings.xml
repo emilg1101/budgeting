@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="ds_zero">0</string>
+    <string name="ds_one">1</string>
+    <string name="ds_two">2</string>
+    <string name="ds_three">3</string>
+    <string name="ds_four">4</string>
+    <string name="ds_five">5</string>
+    <string name="ds_six">6</string>
+    <string name="ds_seven">7</string>
+    <string name="ds_eight">8</string>
+    <string name="ds_nine">9</string>
+</resources>

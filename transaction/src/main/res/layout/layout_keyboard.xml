@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:parentTag="androidx.constraintlayout.widget.ConstraintLayout"
+    tools:background="#000">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_02"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.02" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_26"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.26" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_50"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.50" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_74"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.74" />
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_98"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.98" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_1"
+        style="@style/KeyboardText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/ds_one"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_26"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btn_2"
+        app:layout_constraintTop_toTopOf="@+id/guideline_02" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_2"
+        style="@style/KeyboardText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/ds_two"
+        android:textAlignment="gravity"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_26"
+        app:layout_constraintLeft_toRightOf="@+id/btn_1"
+        app:layout_constraintRight_toLeftOf="@+id/btn_3"
+        app:layout_constraintTop_toTopOf="@+id/guideline_02" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_3"
+        style="@style/KeyboardText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/ds_three"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_26"
+        app:layout_constraintLeft_toRightOf="@+id/btn_2"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_02" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_4"
+        style="@style/KeyboardText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/ds_four"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_50"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btn_5"
+        app:layout_constraintTop_toTopOf="@+id/guideline_26" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_5"
+        style="@style/KeyboardText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/ds_five"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_50"
+        app:layout_constraintLeft_toRightOf="@+id/btn_4"
+        app:layout_constraintRight_toLeftOf="@+id/btn_6"
+        app:layout_constraintTop_toTopOf="@+id/guideline_26" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_6"
+        style="@style/KeyboardText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/ds_six"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_50"
+        app:layout_constraintLeft_toRightOf="@+id/btn_5"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_26" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_7"
+        style="@style/KeyboardText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/ds_seven"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_74"
+        app:layout_constraintHorizontal_chainStyle="packed"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/btn_8"
+        app:layout_constraintTop_toTopOf="@+id/guideline_50" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_8"
+        style="@style/KeyboardText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/ds_eight"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_74"
+        app:layout_constraintLeft_toRightOf="@+id/btn_7"
+        app:layout_constraintRight_toLeftOf="@+id/btn_9"
+        app:layout_constraintTop_toTopOf="@+id/guideline_50" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_9"
+        style="@style/KeyboardText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/ds_nine"
+        app:layout_constraintBottom_toTopOf="@+id/guideline_74"
+        app:layout_constraintLeft_toRightOf="@+id/btn_8"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline_50" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_action"
+        style="@style/KeyboardText"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/ds_keyboard_num_margin"
+        android:layout_marginBottom="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="."
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_98"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_7"
+        app:layout_constraintRight_toRightOf="@+id/btn_7"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_74" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.SquareTextView
+        android:id="@+id/btn_0"
+        style="@style/KeyboardText"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:text="@string/ds_zero"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_98"
+        app:layout_constraintLeft_toRightOf="@+id/btn_7"
+        app:layout_constraintRight_toLeftOf="@+id/btn_9"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_74" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/btn_delete"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="@dimen/ds_keyboard_num_margin"
+        android:layout_marginBottom="@dimen/ds_keyboard_num_margin"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        android:gravity="center"
+        android:scaleType="centerInside"
+        app:srcCompat="@drawable/ic_backspace"
+        app:layout_constraintBottom_toBottomOf="@+id/guideline_98"
+        app:layout_constraintLeft_toLeftOf="@+id/btn_9"
+        app:layout_constraintRight_toRightOf="@+id/btn_9"
+        app:layout_constraintTop_toBottomOf="@+id/guideline_74" />
+
+</merge>

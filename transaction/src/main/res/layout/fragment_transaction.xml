@@ -1,17 +1,184 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.motion.widget.MotionLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/transactionContainer"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    app:layoutDescription="@xml/transaction_scene"
+    tools:context="com.github.emilg1101.budgeting.app.AppActivity">
 
-    <Button
+    <ImageView
         android:id="@+id/transactionClose"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Close"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="16dp"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/ic_close" />
+
+    <org.fabiomsr.moneytextview.MoneyTextView
+        android:id="@+id/transactionAmount"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textAlignment="textStart"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        app:decimalSeparator="."
+        app:gravity="left"
+        app:layout_constraintBottom_toTopOf="@id/transactionCategoriesContainer"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/transactionClose"
+        app:symbol="₽"
+        app:symbolMargin="6dp" />
+
+    <com.github.emilg1101.budgeting.transaction.widget.CategoriesContainer
+        android:id="@+id/transactionCategoriesContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/primary_alpha60_bottom_sheet_background"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_height="464dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <ImageView
+            android:id="@+id/transactionWithdrawFromIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            app:layout_constraintBottom_toBottomOf="@id/transactionWithdrawFrom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/transactionWithdrawFrom"
+            app:srcCompat="@drawable/ic_account" />
+
+        <TextView
+            android:id="@+id/transactionWithdrawFrom"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_categories_header"
+            app:layout_constraintEnd_toStartOf="@id/transactionEnrollmentTo"
+            app:layout_constraintStart_toEndOf="@id/transactionWithdrawFromIcon"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Cash" />
+
+        <ImageView
+            android:id="@+id/transactionEnrollmentToIcon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
+            app:layout_constraintBottom_toBottomOf="@id/transactionEnrollmentTo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/transactionEnrollmentTo"
+            app:srcCompat="@drawable/ic_category" />
+
+        <TextView
+            android:id="@+id/transactionEnrollmentTo"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:gravity="end"
+            android:textColor="#fff"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_categories_header"
+            app:layout_constraintEnd_toStartOf="@id/transactionEnrollmentToIcon"
+            app:layout_constraintStart_toEndOf="@id/transactionWithdrawFrom"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Grocery store" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline_categories_header"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="64dp"
+            app:layout_constraintTop_toTopOf="@id/transactionCategoriesContainer" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/transactionCategoriesList"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:overScrollMode="never"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_categories_header"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:paddingBottom="63dp"
+            tools:listitem="@layout/item_category"/>
+
+    </com.github.emilg1101.budgeting.transaction.widget.CategoriesContainer>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/transactionKeyboardContainer"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/primary_bottom_sheet_background"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <com.github.emilg1101.budgeting.transaction.widget.KeyboardView
+            android:id="@+id/transactionKeyboard"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="64dp"
+            app:layout_constraintBottom_toTopOf="@id/transactionCreate"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:layout_height="40dp" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/transactionQr"
+            style="@style/TransactionIconButton"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginBottom="16dp"
+            app:icon="@drawable/ic_qr"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/transactionCreate"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/transactionCreate"
+            style="@style/TransactionButton"
+            android:layout_width="wrap_content"
+            android:layout_height="64dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            android:text="Add Transaction"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/transactionQr" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_end="68dp" />
+
+    <View
+        android:id="@+id/pointer"
+        android:layout_width="85dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/default_bottom_sheet_slider_background"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@id/transactionKeyboardContainer"
+        app:layout_constraintStart_toStartOf="@id/transactionKeyboardContainer"
+        app:layout_constraintTop_toTopOf="@id/transactionKeyboardContainer" />
+
+</androidx.constraintlayout.motion.widget.MotionLayout>

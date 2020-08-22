@@ -2,7 +2,7 @@ package com.github.emilg1101.budgeting.transaction.di
 
 import com.github.emilg1101.budgeting.core.di.component.CoreComponent
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
-import com.github.emilg1101.budgeting.transaction.TransactionFragment
+import com.github.emilg1101.budgeting.transaction.ui.TransactionFragment
 import dagger.Component
 
 @FeatureScope

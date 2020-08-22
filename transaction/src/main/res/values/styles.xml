@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="KeyboardText" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textSize">36sp</item>
+        <item name="android:letterSpacing">0.01</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <style name="TransactionButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="shapeAppearanceOverlay">@style/TransactionButtonShape</item>
+        <item name="backgroundTint">@color/primary_alpha60</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#fff</item>
+        <item name="textAllCaps">false</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="rippleColor">@color/mtrl_btn_ripple_color</item>
+    </style>
+
+    <style name="TransactionIconButton" parent="Widget.MaterialComponents.Button.OutlinedButton">
+        <item name="shapeAppearanceOverlay">@style/TransactionButtonShape</item>
+        <item name="backgroundTint">@color/primary_alpha60</item>
+        <item name="android:textSize">24sp</item>
+        <item name="android:textColor">#fff</item>
+        <item name="textAllCaps">false</item>
+        <item name="iconPadding">0dp</item>
+        <item name="iconGravity">textStart</item>
+        <item name="android:insetBottom">0dp</item>
+        <item name="android:insetTop">0dp</item>
+        <item name="android:insetLeft">0dp</item>
+        <item name="android:insetRight">0dp</item>
+        <item name="iconTint">#fff</item>
+        <item name="rippleColor">@color/mtrl_btn_ripple_color</item>
+    </style>
+
+    <style name="TransactionButtonShape">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerRadius">50dp</item>
+        <item name="cornerSize">50dp</item>
+    </style>
+</resources>

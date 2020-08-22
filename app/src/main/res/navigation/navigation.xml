@@ -14,7 +14,7 @@
 
     <fragment
         android:id="@+id/transaction"
-        android:name="com.github.emilg1101.budgeting.transaction.TransactionFragment"
+        android:name="com.github.emilg1101.budgeting.transaction.ui.TransactionFragment"
         app:moduleName="transaction"
         android:label="TransactionFragment"
         tools:layout="@layout/fragment_transaction"/>
