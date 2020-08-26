@@ -22,7 +22,7 @@ abstract class BottomAppActivity : AppCompatActivity() {
                 savedInstanceState: Bundle?
             ) {
                 when (f) {
-                    is NestedFragment<*> -> {
+                    is BottomBarCovering -> {
                         bottomNavigationView?.visibility = View.GONE
                     }
                     else -> {

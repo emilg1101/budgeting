@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:theme="@style/AppTheme">
+
+    <View
+        android:id="@+id/pointer"
+        android:layout_width="85dp"
+        android:layout_height="4dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/default_bottom_sheet_slider_background"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/createCategoryTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Create category"
+        android:textColor="#000"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/pointer" />
+
+    <EditText
+        android:id="@+id/createCategoryName"
+        style="@style/EditText"
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:autofillHints="false"
+        android:hint="Name"
+        android:paddingStart="64dp"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createCategoryTitle" />
+
+    <TextView
+        android:id="@+id/createCategoryEmoji"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:gravity="center"
+        android:text="🍎"
+        android:textAlignment="gravity"
+        android:textSize="20dp"
+        android:background="@drawable/emoji_icon_background"
+        android:layout_marginStart="12dp"
+        android:elevation="10dp"
+        app:layout_constraintBottom_toBottomOf="@id/createCategoryName"
+        app:layout_constraintStart_toStartOf="@id/createCategoryName"
+        app:layout_constraintTop_toTopOf="@id/createCategoryName" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/createCategoryDone"
+        style="@style/PrimaryButton.Rounded"
+        android:layout_width="112dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="32dp"
+        android:text="done"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/createCategoryName" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

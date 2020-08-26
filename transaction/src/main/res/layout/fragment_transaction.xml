@@ -5,6 +5,8 @@
     android:id="@+id/transactionContainer"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    android:theme="@style/AppTheme"
     app:layoutDescription="@xml/transaction_scene"
     tools:context="com.github.emilg1101.budgeting.app.AppActivity">
 
@@ -19,21 +21,49 @@
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/ic_close" />
 
-    <org.fabiomsr.moneytextview.MoneyTextView
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/transactionType"
+        style="@style/PrimaryButton.Rounded"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@id/transactionDate"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="income" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/transactionDate"
+        style="@style/PrimaryButton.Rounded"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:textAllCaps="false"
+        app:icon="@drawable/ic_calendar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="today" />
+
+    <TextView
         android:id="@+id/transactionAmount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:textAlignment="textStart"
         android:layout_marginStart="32dp"
         android:layout_marginEnd="32dp"
-        app:decimalSeparator="."
-        app:gravity="left"
+        android:autoSizeMaxTextSize="64sp"
+        android:autoSizeMinTextSize="32sp"
+        android:autoSizeStepGranularity="6sp"
+        android:autoSizeTextType="uniform"
+        android:lines="1"
+        android:textAlignment="textStart"
+        android:textColor="#000"
+        android:textSize="64sp"
         app:layout_constraintBottom_toTopOf="@id/transactionCategoriesContainer"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/transactionClose"
-        app:symbol="₽"
-        app:symbolMargin="6dp" />
+        app:layout_constraintTop_toBottomOf="@id/transactionClose" />
 
     <com.github.emilg1101.budgeting.transaction.widget.CategoriesContainer
         android:id="@+id/transactionCategoriesContainer"
@@ -92,6 +122,24 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="Grocery store" />
 
+        <View
+            android:id="@+id/transactionWithdrawFromBox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_categories_header"
+            app:layout_constraintEnd_toEndOf="@id/transactionWithdrawFrom"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/transactionEnrollmentToBox"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="@id/guideline_categories_header"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@id/transactionEnrollmentTo"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/guideline_categories_header"
             android:layout_width="match_parent"
@@ -107,13 +155,27 @@
             android:layout_marginStart="32dp"
             android:layout_marginEnd="32dp"
             android:overScrollMode="never"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="@id/guideline_categories_header"
-            app:layout_constraintBottom_toBottomOf="parent"
             android:paddingBottom="63dp"
-            tools:listitem="@layout/item_category"/>
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_categories_header"
+            tools:listitem="@layout/item_category" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/transactionCreateCategory"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#000"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/guideline_categories_header"
+            tools:text="CREATE ACCOUNT"
+            tools:visibility="visible" />
 
     </com.github.emilg1101.budgeting.transaction.widget.CategoriesContainer>
 
@@ -130,7 +192,7 @@
             android:id="@+id/transactionKeyboard"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="64dp"
+            android:layout_marginTop="40dp"
             app:layout_constraintBottom_toTopOf="@id/transactionCreate"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

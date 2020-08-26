@@ -1,4 +1,5 @@
 import BuildPlugins.Versions.buildToolsVersion
+import Libraries.AndroidX.Room.Versions.roomVersion
 import Libraries.AndroidX.Versions.activityVersion
 import Libraries.AndroidX.Versions.appcompatVersion
 import Libraries.AndroidX.Versions.constraintlayoutVersion
@@ -93,6 +94,17 @@ object Libraries {
         const val material = "com.google.android.material:material:$materialVersion"
         const val paging = "androidx.paging:paging-runtime:$pagingVersion"
         const val navigationDynamicFeature = "androidx.navigation:navigation-dynamic-features-fragment:$navigationVersion"
+
+        object Room {
+
+            object Versions {
+                const val roomVersion = "2.2.5"
+            }
+
+            const val runtime = "androidx.room:room-runtime:$roomVersion"
+            const val compiler = "androidx.room:room-compiler:$roomVersion"
+            const val ktx = "androidx.room:room-ktx:$roomVersion"
+        }
     }
 
     object Glide {

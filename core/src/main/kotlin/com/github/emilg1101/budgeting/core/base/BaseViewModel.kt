@@ -18,4 +18,8 @@ abstract class BaseViewModel : ViewModel() {
     fun navigate(directions: NavDirections) {
         _navigation.value = Event(NavigationCommand.To(directions))
     }
+
+    fun navigateUp() {
+        _navigation.value = Event(NavigationCommand.Back)
+    }
 }

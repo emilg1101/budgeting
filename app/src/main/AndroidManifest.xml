@@ -10,7 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:name=".BudgetingApplication">
-        <activity android:name="com.github.emilg1101.budgeting.app.AppActivity">
+        <activity android:name="com.github.emilg1101.budgeting.app.AppActivity"
+            android:windowSoftInputMode="stateVisible|adjustPan">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

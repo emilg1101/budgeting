@@ -32,4 +32,31 @@
         app:moduleName="wallets"
         android:label="WalletsFragment"
         tools:layout="@layout/fragment_wallets"/>
+
+    <dialog
+        android:id="@+id/datePicker"
+        android:name="com.github.emilg1101.budgeting.transaction.ui.picker.DatePickerFragment"
+        app:moduleName="transaction" />
+
+    <fragment
+        android:id="@+id/scanner"
+        android:name="com.github.emilg1101.budgeting.transaction.ui.scanner.ScannerFragment"
+        app:moduleName="transaction"
+        tools:layout="@layout/fragment_scanner"/>
+
+    <dialog
+        android:id="@+id/createAccount"
+        android:name="com.github.emilg1101.budgeting.account.ui.CreateAccountFragment"
+        tools:layout="@layout/fragment_create_account"/>
+
+    <dialog
+        android:id="@+id/createCategory"
+        android:name="com.github.emilg1101.budgeting.category.ui.CreateCategoryFragment"
+        tools:layout="@layout/fragment_create_category"/>
+
+    <dialog
+        android:id="@+id/emojiPicker"
+        android:name="com.github.emilg1101.budgeting.emojipicker.ui.EmojiPickerFragment"
+        tools:layout="@layout/fragment_emoji_picker"/>
+
 </navigation>

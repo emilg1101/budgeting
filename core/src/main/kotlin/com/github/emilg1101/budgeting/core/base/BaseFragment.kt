@@ -1,6 +1,7 @@
 package com.github.emilg1101.budgeting.core.base
 
 import android.os.Bundle
+import android.view.View
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -20,6 +21,11 @@ abstract class BaseFragment<VM : BaseViewModel>(@LayoutRes contentLayoutId: Int)
         super.onActivityCreated(savedInstanceState)
         observeNavigation(viewModel)
         setupSnackbar(this, viewModel.snackBarError, Snackbar.LENGTH_LONG)
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        observeNavigation(viewModel)
     }
 
     private fun observeNavigation(viewModel: BaseViewModel) {
