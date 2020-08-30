@@ -20,7 +20,7 @@ import com.github.emilg1101.budgeting.core.onClick
 import com.github.emilg1101.budgeting.transaction.R
 import com.github.emilg1101.budgeting.transaction.di.TransactionComponent
 import com.github.emilg1101.budgeting.transaction.ui.adapter.CategoryAdapter
-import com.github.emilg1101.budgeting.transaction.widget.SpacesItemDecoration
+import com.github.emilg1101.budgeting.core.view.SpacesItemDecoration
 import com.github.emilg1101.budgeting.transaction.widget.setUpWithTextView
 import kotlinx.android.synthetic.main.fragment_transaction.*
 import java.text.NumberFormat
@@ -51,7 +51,9 @@ class TransactionFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        transactionCategoriesList.addItemDecoration(SpacesItemDecoration(context.dpToPx(10)))
+        transactionCategoriesList.addItemDecoration(
+            SpacesItemDecoration(context.dpToPx(10))
+        )
         transactionContainer.getTransition(R.id.keyboardDown).setEnable(false)
         transactionClose.setOnClickListener { findNavController().navigateUp() }
         viewModel.enrollmentCategories.observe(viewLifecycleOwner, Observer {

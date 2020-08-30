@@ -1,4 +1,4 @@
-package com.github.emilg1101.budgeting.transaction.widget
+package com.github.emilg1101.budgeting.core.view
 
 import android.graphics.Rect
 import android.view.View

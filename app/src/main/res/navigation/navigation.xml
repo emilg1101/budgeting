@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/home"
-        android:name="com.github.emilg1101.budgeting.home.HomeFragment"
+        android:name="com.github.emilg1101.budgeting.home.ui.HomeFragment"
         app:moduleName="home"
         android:label="HomeFragment"
         tools:layout="@layout/fragment_home"/>

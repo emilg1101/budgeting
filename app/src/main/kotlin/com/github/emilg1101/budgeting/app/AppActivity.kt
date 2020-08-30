@@ -1,9 +1,7 @@
 package com.github.emilg1101.budgeting.app
 
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
-import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import com.github.emilg1101.budgeting.R
 import com.github.emilg1101.budgeting.app.di.inject

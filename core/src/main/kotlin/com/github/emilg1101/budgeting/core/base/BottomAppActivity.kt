@@ -30,6 +30,14 @@ abstract class BottomAppActivity : AppCompatActivity() {
                     }
                 }
             }
+
+            override fun onFragmentDestroyed(fm: FragmentManager, f: Fragment) {
+                when (f) {
+                    is BottomBarCovering -> {
+                        bottomNavigationView?.visibility = View.VISIBLE
+                    }
+                }
+            }
         }, true)
     }
 }

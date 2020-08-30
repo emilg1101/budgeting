@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<MotionScene xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:motion="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <Transition
+        android:id="@+id/scroll"
+        motion:constraintSetEnd="@+id/end"
+        motion:constraintSetStart="@+id/start">
+        <OnSwipe
+            motion:dragDirection="dragUp"
+            motion:touchAnchorId="@id/homeWidgets"
+            motion:touchAnchorSide="top" />
+    </Transition>
+
+    <ConstraintSet android:id="@+id/start">
+        <Constraint
+            android:id="@+id/homeToolbar"
+            android:layout_width="0dp"
+            android:layout_height="430dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/homeStatusBar" >
+            <CustomAttribute motion:attributeName="bottomRightRadiusDp" motion:customFloatValue="50"/>
+            <CustomAttribute motion:attributeName="bottomLeftRadiusDp" motion:customFloatValue="50"/>
+        </Constraint>
+        <Constraint
+            android:id="@+id/homeProfileImage"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="72dp"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="parent" />
+        <Constraint
+            android:id="@+id/homeWelcomeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            motion:layout_constraintStart_toEndOf="@id/homeProfileImage"
+            motion:layout_constraintTop_toTopOf="@id/homeProfileImage" />
+        <Constraint
+            android:id="@+id/homeProfileName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:scaleX="1.0"
+            android:scaleY="1.0"
+            motion:layout_constraintStart_toStartOf="@id/homeWelcomeLabel"
+            motion:layout_constraintTop_toBottomOf="@id/homeWelcomeLabel" />
+        <Constraint
+            android:id="@+id/homeSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="9dp"
+            android:layout_marginEnd="20dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/homeToolbar" />
+        <Constraint
+            android:id="@+id/homeWidgets"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:layout_marginTop="54dp"
+            motion:layout_constraintTop_toBottomOf="@id/homeProfileImage"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"/>
+    </ConstraintSet>
+
+    <ConstraintSet android:id="@+id/end">
+        <Constraint
+            android:id="@+id/homeToolbar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="10dp"
+            motion:layout_constraintBottom_toBottomOf="@id/home_toolbar_bottom_guideline"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toBottomOf="@id/homeStatusBar">
+            <CustomAttribute motion:attributeName="bottomRightRadiusDp" motion:customFloatValue="0"/>
+            <CustomAttribute motion:attributeName="bottomLeftRadiusDp" motion:customFloatValue="0"/>
+        </Constraint>
+        <Constraint
+            android:id="@+id/homeProfileImage"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginStart="32dp"
+            android:elevation="11dp"
+            motion:layout_constraintBottom_toBottomOf="@id/home_toolbar_bottom_guideline"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/homeToolbar" />
+        <Constraint
+            android:id="@+id/homeWelcomeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:elevation="11dp"
+            android:visibility="gone"
+            motion:layout_constraintStart_toEndOf="@id/homeProfileImage"
+            motion:layout_constraintTop_toTopOf="@id/homeProfileImage" />
+        <Constraint
+            android:id="@+id/homeProfileName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="32dp"
+            android:elevation="11dp"
+            android:scaleX="0.625"
+            android:scaleY="0.625"
+            motion:layout_constraintBottom_toBottomOf="@id/homeProfileImage"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/homeProfileImage" />
+        <Constraint
+            android:id="@+id/homeSettings"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_marginEnd="20dp"
+            android:elevation="11dp"
+            motion:layout_constraintEnd_toEndOf="parent"
+            motion:layout_constraintTop_toTopOf="@id/homeToolbar"
+            motion:layout_constraintBottom_toBottomOf="@id/home_toolbar_bottom_guideline"/>
+        <Constraint
+            android:id="@+id/homeWidgets"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:elevation="11dp"
+            motion:layout_constraintTop_toTopOf="@id/home_toolbar_bottom_guideline"
+            motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintStart_toStartOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"/>
+    </ConstraintSet>
+
+</MotionScene>
