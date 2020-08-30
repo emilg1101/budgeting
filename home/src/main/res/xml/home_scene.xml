@@ -19,9 +19,13 @@
             android:layout_height="430dp"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/homeStatusBar" >
-            <CustomAttribute motion:attributeName="bottomRightRadiusDp" motion:customFloatValue="50"/>
-            <CustomAttribute motion:attributeName="bottomLeftRadiusDp" motion:customFloatValue="50"/>
+            motion:layout_constraintTop_toBottomOf="@id/homeStatusBar">
+            <CustomAttribute
+                motion:attributeName="bottomRightRadiusDp"
+                motion:customFloatValue="50" />
+            <CustomAttribute
+                motion:attributeName="bottomLeftRadiusDp"
+                motion:customFloatValue="50" />
         </Constraint>
         <Constraint
             android:id="@+id/homeProfileImage"
@@ -40,10 +44,12 @@
             motion:layout_constraintTop_toTopOf="@id/homeProfileImage" />
         <Constraint
             android:id="@+id/homeProfileName"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="32dp"
             android:scaleX="1.0"
             android:scaleY="1.0"
+            motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="@id/homeWelcomeLabel"
             motion:layout_constraintTop_toBottomOf="@id/homeWelcomeLabel" />
         <Constraint
@@ -59,12 +65,12 @@
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="30dp"
-            android:layout_marginEnd="30dp"
             android:layout_marginTop="54dp"
-            motion:layout_constraintTop_toBottomOf="@id/homeProfileImage"
+            android:layout_marginEnd="30dp"
             motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"/>
+            motion:layout_constraintTop_toBottomOf="@id/homeProfileImage" />
     </ConstraintSet>
 
     <ConstraintSet android:id="@+id/end">
@@ -77,8 +83,12 @@
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
             motion:layout_constraintTop_toBottomOf="@id/homeStatusBar">
-            <CustomAttribute motion:attributeName="bottomRightRadiusDp" motion:customFloatValue="0"/>
-            <CustomAttribute motion:attributeName="bottomLeftRadiusDp" motion:customFloatValue="0"/>
+            <CustomAttribute
+                motion:attributeName="bottomRightRadiusDp"
+                motion:customFloatValue="0" />
+            <CustomAttribute
+                motion:attributeName="bottomLeftRadiusDp"
+                motion:customFloatValue="0" />
         </Constraint>
         <Constraint
             android:id="@+id/homeProfileImage"
@@ -117,9 +127,9 @@
             android:layout_height="48dp"
             android:layout_marginEnd="20dp"
             android:elevation="11dp"
+            motion:layout_constraintBottom_toBottomOf="@id/home_toolbar_bottom_guideline"
             motion:layout_constraintEnd_toEndOf="parent"
-            motion:layout_constraintTop_toTopOf="@id/homeToolbar"
-            motion:layout_constraintBottom_toBottomOf="@id/home_toolbar_bottom_guideline"/>
+            motion:layout_constraintTop_toTopOf="@id/homeToolbar" />
         <Constraint
             android:id="@+id/homeWidgets"
             android:layout_width="0dp"
@@ -127,10 +137,10 @@
             android:layout_marginStart="30dp"
             android:layout_marginEnd="30dp"
             android:elevation="11dp"
-            motion:layout_constraintTop_toTopOf="@id/home_toolbar_bottom_guideline"
             motion:layout_constraintBottom_toBottomOf="parent"
+            motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintEnd_toEndOf="parent"/>
+            motion:layout_constraintTop_toTopOf="@id/home_toolbar_bottom_guideline" />
     </ConstraintSet>
 
 </MotionScene>

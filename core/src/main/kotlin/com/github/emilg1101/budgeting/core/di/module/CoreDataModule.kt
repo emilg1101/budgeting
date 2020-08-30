@@ -1,13 +1,29 @@
 package com.github.emilg1101.budgeting.core.di.module
 
+import android.content.Context
+import android.content.SharedPreferences
 import com.github.emilg1101.budgeting.data.repository.CategoryRepositoryImpl
+import com.github.emilg1101.budgeting.data.repository.UserRepositoryImpl
 import com.github.emilg1101.budgeting.domain.repository.CategoryRepository
+import com.github.emilg1101.budgeting.domain.repository.UserRepository
 import dagger.Binds
 import dagger.Module
+import dagger.Provides
 
 @Module
 interface CoreDataModule {
 
     @Binds
     fun bindCategoryRepository(repository: CategoryRepositoryImpl): CategoryRepository
+
+    @Binds
+    fun bindUserRepository(repository: UserRepositoryImpl): UserRepository
+
+    @Module
+    companion object {
+        @Provides
+        @JvmStatic
+        fun provideSharedPreferences(context: Context): SharedPreferences =
+            context.getSharedPreferences("app", Context.MODE_PRIVATE)
+    }
 }

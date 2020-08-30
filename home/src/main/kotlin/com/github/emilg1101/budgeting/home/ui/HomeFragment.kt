@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.View
 import android.view.WindowInsets
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import com.github.emilg1101.budgeting.core.base.BaseFragment
@@ -46,10 +47,12 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home), Naviga
             WidgetAdapter.Widget(R.layout.widget_total_balance, TotalBalanceViewHolder::class.java),
             WidgetAdapter.Widget(R.layout.widget_accounts, AccountsWidget::class.java)
         )
-        homeProfileName.text = "Julie Bell"
         homeSettings.onClick = {
 
         }
+        viewModel.user.observe(viewLifecycleOwner, Observer {
+            homeProfileName.text = it.name
+        })
         //homeStatusBar.setOnApplyWindowInsetsListener(this)
     }
 

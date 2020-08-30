@@ -7,8 +7,6 @@ import androidx.lifecycle.ViewModelStoreOwner
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelFactory
-import com.github.emilg1101.budgeting.core.dpToPx
-import com.github.emilg1101.budgeting.core.view.GridSpacingItemDecoration
 import com.github.emilg1101.budgeting.core.view.adapter.LifecycleViewHolder
 import com.github.emilg1101.budgeting.home.di.HomeComponent
 import com.github.emilg1101.budgeting.home.ui.Navigator
@@ -36,9 +34,7 @@ class AccountsWidget(view: View) : LifecycleViewHolder(view) {
     override fun onAppear() {
         HomeComponent.component.inject(this)
         super.onAppear()
-        viewModel = ViewModelProvider(viewModelStoreOwner, viewModelFactory).get(
-            AccountsWidgetViewModel::class.java
-        )
+        viewModel = ViewModelProvider(viewModelStoreOwner, viewModelFactory).get(AccountsWidgetViewModel::class.java)
         itemView.widgetAccounts.layoutManager = GridLayoutManager(itemView.context, 2, HORIZONTAL, false)
         itemView.widgetAccounts.adapter = categoryAdapter
         /*itemView.widgetAccounts.addItemDecoration(

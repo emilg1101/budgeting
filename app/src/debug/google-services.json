@@ -1,0 +1,69 @@
+{
+  "project_info": {
+    "project_number": "190478081233",
+    "firebase_url": "https://budgetng-381ee.firebaseio.com",
+    "project_id": "budgetng-381ee",
+    "storage_bucket": "budgetng-381ee.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190478081233:android:1eb428177bcdf8a902f9f0",
+        "android_client_info": {
+          "package_name": "com.github.emilg1101.budgeting"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190478081233-6fpi2p8su255j7fenef0jr12c59rqqr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0Ninr0oFoNGBUrbWQTx64y1Y7tatW1eE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190478081233-6fpi2p8su255j7fenef0jr12c59rqqr2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:190478081233:android:6bce1035daec736202f9f0",
+        "android_client_info": {
+          "package_name": "com.github.emilg1101.budgeting.debug"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "190478081233-6fpi2p8su255j7fenef0jr12c59rqqr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA0Ninr0oFoNGBUrbWQTx64y1Y7tatW1eE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "190478081233-6fpi2p8su255j7fenef0jr12c59rqqr2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

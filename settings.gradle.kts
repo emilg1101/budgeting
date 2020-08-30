@@ -1,1 +1,1 @@
-listOf("app", "core", "data", "device", "domain", "home", "transaction", "analytics", "wallets").forEach { module -> include(module) }
+listOf("app", "core", "data", "device", "domain", "home", "transaction", "analytics", "wallets", "authorization").forEach { module -> include(module) }

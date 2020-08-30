@@ -24,6 +24,10 @@ dependencies {
     implementation(Libraries.Dagger.dagger)
     kapt(Libraries.Dagger.compiler)
 
+    implementation(Libraries.gson)
+
+    implementation("com.google.firebase:firebase-auth-ktx:19.3.2")
+
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.junitAndroid)
     androidTestImplementation(TestLibraries.testRunner)

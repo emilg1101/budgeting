@@ -11,7 +11,9 @@ buildscript {
     }
     dependencies {
         classpath(BuildPlugins.androidGradlePlugin)
-        classpath(BuildPlugins.kotlinGradlePlugin) }
+        classpath(BuildPlugins.kotlinGradlePlugin)
+        classpath(BuildPlugins.googleServicesPlugin)
+    }
 }
 
 allprojects {

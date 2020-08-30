@@ -3,6 +3,7 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
+    id("com.google.gms.google-services")
 }
 
 android {
@@ -48,7 +49,9 @@ android {
     sourceSets {
         getByName("main").java.srcDir("src/main/kotlin")
     }
-    dynamicFeatures = mutableSetOf(":home", ":transaction", ":analytics", ":wallets")
+    dynamicFeatures = mutableSetOf(":home", ":transaction", ":analytics", ":wallets",
+        ":authorization"
+    )
 }
 
 dependencies {
@@ -74,6 +77,8 @@ dependencies {
 
     implementation(Libraries.Dagger.dagger)
     kapt(Libraries.Dagger.compiler)
+
+    implementation("com.google.firebase:firebase-analytics:17.5.0")
 
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.junitAndroid)

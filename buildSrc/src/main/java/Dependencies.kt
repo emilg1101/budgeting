@@ -1,4 +1,5 @@
 import BuildPlugins.Versions.buildToolsVersion
+import BuildPlugins.Versions.googleServicesVersion
 import Libraries.AndroidX.Room.Versions.roomVersion
 import Libraries.AndroidX.Versions.activityVersion
 import Libraries.AndroidX.Versions.appcompatVersion
@@ -17,6 +18,7 @@ import Libraries.Glide.Versions.glideVersion
 import Libraries.Retrofit.Versions.loggingVersion
 import Libraries.Retrofit.Versions.retrofitVersion
 import Libraries.Versions.coroutinesVersion
+import Libraries.Versions.gsonVersion
 import Libraries.Versions.timberVersion
 import TestLibraries.Versions.androidJunitVersion
 import TestLibraries.Versions.espressoVersion
@@ -30,11 +32,13 @@ object BuildPlugins {
     object Versions {
         const val buildToolsVersion = "4.0.1"
         const val detektVersion = "1.11.0-RC2"
+        const val googleServicesVersion = "4.3.3"
     }
 
     const val androidGradlePlugin = "com.android.tools.build:gradle:$buildToolsVersion"
     const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion"
     const val detektGradlePlugin = "io.gitlab.arturbosch.detekt"
+    const val googleServicesPlugin = "com.google.gms:google-services:$googleServicesVersion"
 }
 
 object AndroidSdk {
@@ -50,6 +54,7 @@ object Libraries {
     object Versions {
         const val coroutinesVersion = "1.3.0"
         const val timberVersion = "4.7.1"
+        const val gsonVersion = "2.8.6"
     }
 
     const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
@@ -57,6 +62,7 @@ object Libraries {
     const val coroutinesAndroid =
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     const val timber = "com.jakewharton.timber:timber:$timberVersion"
+    const val gson = "com.google.code.gson:gson:$gsonVersion"
 
     object AndroidX {
 
