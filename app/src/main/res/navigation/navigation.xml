@@ -72,4 +72,16 @@
         android:name="com.github.emilg1101.budgeting.emojipicker.ui.EmojiPickerFragment"
         tools:layout="@layout/fragment_emoji_picker" />
 
+    <dialog
+        android:id="@+id/settings"
+        android:name="com.github.emilg1101.budgeting.home.settings.ui.SettingsFragment"
+        app:moduleName="home"
+        tools:layout="@layout/fragment_settings" >
+        <action
+            android:id="@+id/action_settings_to_authorization"
+            app:destination="@id/authorization"
+            app:popUpTo="@id/home"
+            app:popUpToInclusive="true"/>
+    </dialog>
+
 </navigation>
