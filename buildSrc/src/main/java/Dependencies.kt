@@ -68,7 +68,7 @@ object Libraries {
 
         object Versions {
             const val activityVersion = "1.0.0"
-            const val fragmentVersion = "1.2.0"
+            const val fragmentVersion = "1.2.5"
             const val appcompatVersion = "1.1.0"
             const val coreVersion = "1.1.0"
             const val constraintlayoutVersion = "2.0.0-beta4"

@@ -19,6 +19,18 @@
     </fragment>
 
     <fragment
+        android:id="@+id/onboarding"
+        android:name="com.github.emilg1101.budgeting.onboarding.ui.OnboardingFlowFragment"
+        app:moduleName="onboarding"
+        tools:layout="@layout/fragment_onboarding_flow" >
+        <action
+            android:id="@+id/action_onboarding_to_home"
+            app:destination="@id/home"
+            app:popUpTo="@id/authorization"
+            app:popUpToInclusive="true"/>
+    </fragment>
+
+    <fragment
         android:id="@+id/home"
         android:name="com.github.emilg1101.budgeting.home.ui.HomeFragment"
         android:label="HomeFragment"
