@@ -6,7 +6,7 @@ import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import dagger.Component
 
 @FeatureScope
-@Component(dependencies = [CoreComponent::class])
+@Component(dependencies = [CoreComponent::class], modules = [AppModule::class])
 interface AppComponent {
     @Component.Builder
     interface Builder {

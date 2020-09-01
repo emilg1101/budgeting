@@ -61,4 +61,8 @@ class UserRepositoryImpl @Inject constructor(
         firebaseAuth.signOut()
         userPreferences.removeUser()
     }
+
+    override suspend fun hasLoggedInUser(): Boolean {
+        return userPreferences.getUser() != null
+    }
 }
