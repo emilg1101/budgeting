@@ -14,6 +14,9 @@ interface CategoryDao {
     @Query("SELECT * FROM categories WHERE type == :type")
     fun getCategoriesByType(type: CategoryType): Flow<List<CategoryEntity>>
 
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insert(entity: CategoryEntity)
+
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    suspend fun insert(entities: List<CategoryEntity>)
 }

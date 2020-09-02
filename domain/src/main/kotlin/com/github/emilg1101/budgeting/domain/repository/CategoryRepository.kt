@@ -12,9 +12,15 @@ interface CategoryRepository {
 
     fun getAccounts(): Flow<List<Account>>
 
-    suspend fun addCategory(iCategory: ICategory)
-
     suspend fun createAccount(account: EmptyCategory)
 
     suspend fun createCategory(category: EmptyCategory)
+
+    suspend fun createAccounts(accounts: List<EmptyCategory>)
+
+    suspend fun createCategories(categories: List<EmptyCategory>)
+
+    fun defaultCategories(): Flow<List<EmptyCategory>>
+
+    fun defaultAccounts(): Flow<List<EmptyCategory>>
 }

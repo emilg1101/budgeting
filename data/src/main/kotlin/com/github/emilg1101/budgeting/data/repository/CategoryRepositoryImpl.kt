@@ -9,6 +9,7 @@ import com.github.emilg1101.budgeting.domain.entity.EmptyCategory
 import com.github.emilg1101.budgeting.domain.entity.ICategory
 import com.github.emilg1101.budgeting.domain.repository.CategoryRepository
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import java.util.*
 import javax.inject.Inject
@@ -44,11 +45,6 @@ class CategoryRepositoryImpl @Inject constructor(
         }
     }
 
-    override suspend fun addCategory(iCategory: ICategory) {
-        val entity = CategoryEntity(0, iCategory.name, "", iCategory.created, CategoryType.CATEGORY)
-        categoryDao.insert(entity)
-    }
-
     override suspend fun createAccount(account: EmptyCategory) {
         val entity = account.let {
             CategoryEntity(it.id, it.name, "", it.created, CategoryType.ACCOUNT)
@@ -61,5 +57,64 @@ class CategoryRepositoryImpl @Inject constructor(
             CategoryEntity(it.id, it.name, it.emoji, it.created, CategoryType.CATEGORY)
         }
         categoryDao.insert(entity)
+    }
+
+    override suspend fun createAccounts(accounts: List<EmptyCategory>) {
+        categoryDao.insert(accounts.map {
+            CategoryEntity(
+                it.id,
+                it.name,
+                it.emoji,
+                it.created,
+                CategoryType.ACCOUNT
+            )
+        })
+    }
+
+    override suspend fun createCategories(categories: List<EmptyCategory>) {
+        categoryDao.insert(categories.map {
+            CategoryEntity(
+                it.id,
+                it.name,
+                it.emoji,
+                it.created,
+                CategoryType.CATEGORY
+            )
+        })
+    }
+
+    override fun defaultCategories(): Flow<List<EmptyCategory>> {
+        return flow {
+            emit(
+                listOf(
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑")
+                )
+            )
+        }
+    }
+
+    override fun defaultAccounts(): Flow<List<EmptyCategory>> {
+        return flow {
+            emit(
+                listOf(
+                    EmptyCategory("Food", "🥑"),
+                    EmptyCategory("Food", "🥑")
+                )
+            )
+        }
     }
 }

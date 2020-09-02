@@ -3,11 +3,13 @@ package com.github.emilg1101.budgeting.onboarding.accounts_setup.ui
 import android.os.Bundle
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.github.emilg1101.budgeting.core.base.NestedFragment
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelFactory
 import com.github.emilg1101.budgeting.core.onClick
 import com.github.emilg1101.budgeting.onboarding.R
+import com.github.emilg1101.budgeting.onboarding.adapter.CategoryAdapter
 import com.github.emilg1101.budgeting.onboarding.ui.onboardingComponent
 import kotlinx.android.synthetic.main.fragment_accounts_setup.*
 import javax.inject.Inject
@@ -19,6 +21,9 @@ class AccountsSetupFragment :
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
 
+    @Inject
+    lateinit var categoryAdapter: CategoryAdapter
+
     override val viewModel: AccountsSetupViewModel by viewModels { viewModelFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,10 +33,15 @@ class AccountsSetupFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        accountsList.adapter = categoryAdapter
+        viewModel.accounts.observe(viewLifecycleOwner, Observer {
+            categoryAdapter.items = it
+        })
         accountsSetupBack.onClick = {
             findNavController().navigateUp()
         }
         accountsSetupNext.onClick = {
+            viewModel.onNextButtonClick()
             parentFragment?.parentFragment?.findNavController()?.navigate(R2.id.action_onboarding_to_home)
         }
     }

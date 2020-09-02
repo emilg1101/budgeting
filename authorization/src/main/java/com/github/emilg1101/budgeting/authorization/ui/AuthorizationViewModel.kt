@@ -36,7 +36,7 @@ class AuthorizationViewModel @Inject constructor(
         viewModelScope.launch {
             account?.idToken?.let { idToken ->
                 authUserUseCase.invoke(idToken).collect {
-                    if (!it.isNewUser) {
+                    if (it.isNewUser) {
                         navigate(ActionOnlyNavDirections(R2.id.onboarding))
                     } else {
                         navigate(ActionOnlyNavDirections(R2.id.action_authorization_to_home))
