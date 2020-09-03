@@ -16,8 +16,8 @@ dependencies {
 
     implementation(Libraries.gson)
 
-    implementation("com.google.firebase:firebase-auth-ktx:19.3.2")
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.1.1")
+    implementation(Libraries.Firebase.auth)
+    implementation(Libraries.GoogleServices.coroutines)
 
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.junitAndroid)

@@ -26,7 +26,7 @@ dependencies {
 
     implementation(Libraries.gson)
 
-    implementation("com.google.firebase:firebase-auth-ktx:19.3.2")
+    implementation(Libraries.Firebase.auth)
 
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.junitAndroid)

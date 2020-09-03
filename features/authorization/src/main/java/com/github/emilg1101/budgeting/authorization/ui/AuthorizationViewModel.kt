@@ -4,7 +4,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import androidx.navigation.ActionOnlyNavDirections
-import androidx.navigation.NavDirections
 import com.github.emilg1101.budgeting.authorization.domain.AuthUserUseCase
 import com.github.emilg1101.budgeting.core.base.BaseViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
@@ -44,6 +43,5 @@ class AuthorizationViewModel @Inject constructor(
                 }
             }
         }
-
     }
 }

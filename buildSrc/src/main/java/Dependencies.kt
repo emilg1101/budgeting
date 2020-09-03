@@ -14,9 +14,13 @@ import Libraries.AndroidX.Versions.navigationVersion
 import Libraries.AndroidX.Versions.pagingVersion
 import Libraries.AndroidX.Versions.recyclerviewVersion
 import Libraries.Dagger.Versions.daggerVersion
+import Libraries.Firebase.Versions.firebaseAuthVersion
 import Libraries.Glide.Versions.glideVersion
+import Libraries.GoogleServices.Versions.authVersion
+import Libraries.GoogleServices.Versions.kotlinxVersion
 import Libraries.Retrofit.Versions.loggingVersion
 import Libraries.Retrofit.Versions.retrofitVersion
+import Libraries.Versions.codeScannerVersion
 import Libraries.Versions.coroutinesVersion
 import Libraries.Versions.gsonVersion
 import Libraries.Versions.timberVersion
@@ -55,6 +59,7 @@ object Libraries {
         const val coroutinesVersion = "1.3.0"
         const val timberVersion = "4.7.1"
         const val gsonVersion = "2.8.6"
+        const val codeScannerVersion = "2.1.0"
     }
 
     const val kotlinStd = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlinVersion"
@@ -63,6 +68,7 @@ object Libraries {
         "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutinesVersion"
     const val timber = "com.jakewharton.timber:timber:$timberVersion"
     const val gson = "com.google.code.gson:gson:$gsonVersion"
+    const val codeScanner = "com.budiyev.android:code-scanner:$codeScannerVersion"
 
     object AndroidX {
 
@@ -143,6 +149,26 @@ object Libraries {
 
         const val dagger = "com.google.dagger:dagger:$daggerVersion"
         const val compiler = "com.google.dagger:dagger-compiler:$daggerVersion"
+    }
+
+    object GoogleServices {
+
+        object Versions {
+            const val authVersion = "18.1.0"
+            const val kotlinxVersion = "1.1.1"
+        }
+
+        const val auth = "com.google.android.gms:play-services-auth:$authVersion"
+        const val coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$kotlinxVersion"
+    }
+
+    object Firebase {
+
+        object Versions {
+            const val firebaseAuthVersion = "19.3.2"
+        }
+
+        const val auth = "com.google.firebase:firebase-auth-ktx:$firebaseAuthVersion"
     }
 }
 

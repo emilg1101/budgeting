@@ -49,8 +49,13 @@ android {
     sourceSets {
         getByName("main").java.srcDir("src/main/kotlin")
     }
-    dynamicFeatures = mutableSetOf(":home", ":transaction", ":analytics", ":wallets",
-        ":authorization", ":onboarding"
+    dynamicFeatures = mutableSetOf(
+        ":features:home",
+        ":features:transaction",
+        ":features:analytics",
+        ":features:wallets",
+        ":features:authorization",
+        ":features:onboarding"
     )
 }
 
