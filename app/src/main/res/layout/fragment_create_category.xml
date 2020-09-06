@@ -38,23 +38,22 @@
         android:layout_marginEnd="32dp"
         android:autofillHints="false"
         android:hint="Name"
-        android:paddingStart="64dp"
         android:inputType="text"
+        android:paddingStart="64dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/createCategoryTitle" />
 
-    <TextView
+    <androidx.emoji.widget.EmojiTextView
         android:id="@+id/createCategoryEmoji"
+        style="@style/EmojiTextView"
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:gravity="center"
-        android:text="🍎"
-        android:textAlignment="gravity"
-        android:textSize="20dp"
-        android:background="@drawable/emoji_icon_background"
         android:layout_marginStart="12dp"
+        android:background="@drawable/emoji_icon_background"
         android:elevation="10dp"
+        android:text="🍎"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="@id/createCategoryName"
         app:layout_constraintStart_toStartOf="@id/createCategoryName"
         app:layout_constraintTop_toTopOf="@id/createCategoryName" />

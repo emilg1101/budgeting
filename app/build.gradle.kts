@@ -1,3 +1,5 @@
+import com.github.emilg1101.budgeting.extensions.implementation
+
 plugins {
     id("com.android.application")
     kotlin("android")
@@ -65,6 +67,7 @@ dependencies {
     implementCore()
 
     implementation(Libraries.coroutinesAndroid)
+    implementation(Libraries.emoji)
 
     implementation(Libraries.AndroidX.core)
     implementation(Libraries.AndroidX.appcompat)
