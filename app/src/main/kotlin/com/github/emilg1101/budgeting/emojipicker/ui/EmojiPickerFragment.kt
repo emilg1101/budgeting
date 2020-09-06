@@ -38,7 +38,6 @@ class EmojiPickerFragment : BottomSheetDialogFragment(), BottomBarCovering {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        emojiPickerList.layoutManager = GridLayoutManager(requireContext(), 5)
         emojiPickerList.adapter = adapter
         adapter.onEmojiPickerListener = object : OnEmojiPickerListener {
             override fun onEmojiPicked(emoji: EmojiModel) {

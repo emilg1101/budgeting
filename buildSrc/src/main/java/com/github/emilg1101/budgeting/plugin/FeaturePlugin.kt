@@ -35,6 +35,7 @@ class FeaturePlugin : Plugin<Project> {
         implementDomain()
 
         implementation(Libraries.coroutinesAndroid)
+        implementation(Libraries.emoji)
 
         implementation(AndroidX.core)
         implementation(AndroidX.appcompat)
