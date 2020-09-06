@@ -3,10 +3,9 @@ package com.github.emilg1101.budgeting.home.adapter
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.annotation.LayoutRes
-import androidx.recyclerview.widget.RecyclerView
 import com.github.emilg1101.budgeting.core.view.adapter.LifecycleRecyclerAdapter
 import com.github.emilg1101.budgeting.core.view.adapter.LifecycleViewHolder
+import com.github.emilg1101.budgeting.widget.core.Widget
 import javax.inject.Inject
 
 class WidgetAdapter @Inject constructor() : LifecycleRecyclerAdapter<LifecycleViewHolder>() {
@@ -33,16 +32,4 @@ class WidgetAdapter @Inject constructor() : LifecycleRecyclerAdapter<LifecycleVi
     override fun getItemViewType(position: Int): Int {
         return position
     }
-
-    inner class WidgetViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-
-        fun bind(model: String) = with(itemView) {
-
-        }
-    }
-
-    data class Widget<T: LifecycleViewHolder>(
-        @LayoutRes val widgetLayout: Int,
-        val viewHolderClass: Class<T>
-    )
 }

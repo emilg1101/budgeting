@@ -1,11 +1,11 @@
-package com.github.emilg1101.budgeting.home.widget.accounts.adapter
+package com.github.emilg1101.budgeting.widget.accounts.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.github.emilg1101.budgeting.domain.entity.Account
-import com.github.emilg1101.budgeting.home.R
+import com.github.emilg1101.budgeting.widget.accounts.R
 import kotlinx.android.synthetic.main.item_account.view.*
 import javax.inject.Inject
 

@@ -6,6 +6,7 @@ object Modules {
     const val Domain = ":domain"
     const val Data = ":data"
     const val Device = ":device"
+    const val WidgetCore = ":widgets:widget_core"
 }
 
 fun DependencyHandler.implementApp() {
@@ -26,4 +27,8 @@ fun DependencyHandler.implementData() {
 
 fun DependencyHandler.implementDevice() {
     add("implementation", project(mapOf("path" to Modules.Device)))
+}
+
+fun DependencyHandler.implementWidgetCore() {
+    add("implementation", project(mapOf("path" to Modules.WidgetCore)))
 }

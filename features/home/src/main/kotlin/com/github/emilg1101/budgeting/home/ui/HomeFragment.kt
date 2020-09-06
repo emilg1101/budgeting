@@ -17,8 +17,9 @@ import com.github.emilg1101.budgeting.core.view.SpacesItemDecoration
 import com.github.emilg1101.budgeting.home.R
 import com.github.emilg1101.budgeting.home.adapter.WidgetAdapter
 import com.github.emilg1101.budgeting.home.di.HomeComponent
-import com.github.emilg1101.budgeting.home.widget.accounts.AccountsWidget
-import com.github.emilg1101.budgeting.home.widget.balance.TotalBalanceViewHolder
+import com.github.emilg1101.budgeting.widget.core.WidgetFactory
+import com.github.emilg1101.budgeting.widget.core.WidgetFactory.Companion.ACCOUNTS_WIDGET
+import com.github.emilg1101.budgeting.widget.core.WidgetFactory.Companion.TOTAL_BALANCE_WIDGET
 import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 import com.github.emilg1101.budgeting.R as R2
@@ -31,6 +32,9 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home), Naviga
 
     @Inject
     lateinit var widgetAdapter: WidgetAdapter
+
+    @Inject
+    lateinit var widgetFactory: WidgetFactory
 
     override val viewModel: HomeViewModel by viewModels { viewModelFactory }
 
@@ -46,9 +50,9 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home), Naviga
         super.onViewCreated(view, savedInstanceState)
         homeWidgets.addItemDecoration(SpacesItemDecoration(context.dpToPx(16)))
         homeWidgets.adapter = widgetAdapter
-        widgetAdapter.widgets = listOf(
-            WidgetAdapter.Widget(R.layout.widget_total_balance, TotalBalanceViewHolder::class.java),
-            WidgetAdapter.Widget(R.layout.widget_accounts, AccountsWidget::class.java)
+        widgetAdapter.widgets = listOfNotNull(
+            widgetFactory.getWidget(TOTAL_BALANCE_WIDGET),
+            widgetFactory.getWidget(ACCOUNTS_WIDGET)
         )
         homeSettings.onClick = {
             findNavController().navigate(R2.id.settings)

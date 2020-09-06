@@ -55,7 +55,9 @@ android {
         ":features:analytics",
         ":features:wallets",
         ":features:authorization",
-        ":features:onboarding"
+        ":features:onboarding",
+        ":widgets:widget_balance",
+        ":widgets:widget_accounts"
     )
 }
 

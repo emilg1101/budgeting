@@ -1,4 +1,4 @@
-package com.github.emilg1101.budgeting.home.domain
+package com.github.emilg1101.budgeting.widget.accounts.domain
 
 import com.github.emilg1101.budgeting.domain.repository.CategoryRepository
 import javax.inject.Inject

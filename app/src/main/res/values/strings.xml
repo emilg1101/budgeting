@@ -6,4 +6,6 @@
     <string name="title_wallets">Wallets</string>
     <string name="title_authorization">Authorization</string>
     <string name="title_onboarding">Onboarding</string>
+    <string name="title_widget_balance">Widget Balance</string>
+    <string name="title_widget_accounts">Widget Accounts</string>
 </resources>

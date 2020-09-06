@@ -1,8 +1,8 @@
-package com.github.emilg1101.budgeting.home.widget.balance
+package com.github.emilg1101.budgeting.widget.balance.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.asLiveData
-import com.github.emilg1101.budgeting.home.domain.GetTotalBalanceUseCase
+import com.github.emilg1101.budgeting.widget.balance.domain.GetTotalBalanceUseCase
 import javax.inject.Inject
 
 class TotalBalanceViewModel @Inject constructor(

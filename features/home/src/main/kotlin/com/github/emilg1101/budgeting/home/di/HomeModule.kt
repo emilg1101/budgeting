@@ -1,13 +1,10 @@
 package com.github.emilg1101.budgeting.home.di
 
 import androidx.lifecycle.ViewModel
-import androidx.navigation.fragment.findNavController
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelKey
-import com.github.emilg1101.budgeting.home.adapter.WidgetAdapter
-import com.github.emilg1101.budgeting.home.ui.HomeFragment
 import com.github.emilg1101.budgeting.home.ui.HomeViewModel
-import com.github.emilg1101.budgeting.home.widget.accounts.AccountsWidgetViewModel
-import com.github.emilg1101.budgeting.home.widget.balance.TotalBalanceViewModel
+import com.github.emilg1101.budgeting.widget.core.WidgetDependencies
+import com.github.emilg1101.budgeting.widget.core.WidgetFactory
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -22,12 +19,12 @@ interface HomeModule {
     fun provideHomeViewModel(viewModel: HomeViewModel): ViewModel
 
     @Binds
-    @IntoMap
-    @ViewModelKey(TotalBalanceViewModel::class)
-    fun provideTotalBalanceViewModel(viewModel: TotalBalanceViewModel): ViewModel
+    fun bindWidgetDependencies(homeComponent: HomeComponent): WidgetDependencies
 
-    @Binds
-    @IntoMap
-    @ViewModelKey(AccountsWidgetViewModel::class)
-    fun provideAccountsWidgetViewModel(viewModel: AccountsWidgetViewModel): ViewModel
+    @Module
+    companion object {
+        @Provides
+        @JvmStatic
+        fun widgetFactory(dependencies: WidgetDependencies) = WidgetFactory(dependencies)
+    }
 }

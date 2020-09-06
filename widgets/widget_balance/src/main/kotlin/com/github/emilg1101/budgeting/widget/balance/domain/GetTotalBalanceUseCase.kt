@@ -1,4 +1,4 @@
-package com.github.emilg1101.budgeting.home.domain
+package com.github.emilg1101.budgeting.widget.balance.domain
 
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.flow
