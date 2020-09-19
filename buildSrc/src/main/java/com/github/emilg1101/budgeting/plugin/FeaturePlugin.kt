@@ -52,6 +52,8 @@ class FeaturePlugin : Plugin<Project> {
         implementation(Libraries.Dagger.dagger)
         kapt(Libraries.Dagger.compiler)
 
+        implementation("org.threeten:threetenbp:1.4.4:no-tzdb")
+
         testImplementation(TestLibraries.junit4)
         androidTestImplementation(TestLibraries.junitAndroid)
         androidTestImplementation(TestLibraries.testRunner)

@@ -9,4 +9,5 @@ sourceSets {
 dependencies {
     api(Libraries.kotlinStd)
     api(Libraries.coroutinesCore)
+    implementation("org.threeten:threetenbp:1.4.4:no-tzdb")
 }

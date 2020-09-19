@@ -13,17 +13,19 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import com.github.emilg1101.budgeting.core.base.NestedFragment
+import com.github.emilg1101.budgeting.core.di.qualifier.ShortDate
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelFactory
 import com.github.emilg1101.budgeting.core.dpToPx
-import com.github.emilg1101.budgeting.core.format
 import com.github.emilg1101.budgeting.core.onClick
+import com.github.emilg1101.budgeting.core.toCurrency
+import com.github.emilg1101.budgeting.core.view.SpacesItemDecoration
 import com.github.emilg1101.budgeting.transaction.R
 import com.github.emilg1101.budgeting.transaction.di.TransactionComponent
+import com.github.emilg1101.budgeting.transaction.domain.TransactionType
 import com.github.emilg1101.budgeting.transaction.ui.adapter.CategoryAdapter
-import com.github.emilg1101.budgeting.core.view.SpacesItemDecoration
 import com.github.emilg1101.budgeting.transaction.widget.setUpWithTextView
 import kotlinx.android.synthetic.main.fragment_transaction.*
-import java.text.NumberFormat
+import org.threeten.bp.format.DateTimeFormatter
 import javax.inject.Inject
 import javax.inject.Named
 import com.github.emilg1101.budgeting.R as R2
@@ -41,6 +43,10 @@ class TransactionFragment :
     @Inject
     @Named("Withdraw")
     lateinit var withdrawAdapter: CategoryAdapter
+
+    @ShortDate
+    @Inject
+    lateinit var formatter: DateTimeFormatter
 
     override val viewModel: TransactionViewModel by viewModels { viewModelFactory }
 
@@ -124,16 +130,13 @@ class TransactionFragment :
         viewModel.transactionDate.observe(viewLifecycleOwner, Observer {
             when (it) {
                 is TransactionDate.Today -> transactionDate.text = "today"
-                is TransactionDate.Day -> transactionDate.text = it.date.format("MM.dd")
+                is TransactionDate.Day -> transactionDate.text = it.date.format(formatter)
             }
         })
 
         transactionKeyboard.setUpWithTextView(viewModel)
         viewModel.transactionAmount.observe(viewLifecycleOwner, Observer {
-            val formatted = NumberFormat.getNumberInstance().apply {
-                maximumFractionDigits = 2
-            }.format(it.toFloat() / 100f).replace(",", " ")
-            transactionAmount.text = "₽ $formatted"
+            transactionAmount.text = "₽ ${it.toCurrency("")}"
         })
         transactionAmount.onClick = transactionContainer::transitionToStart
 
@@ -146,6 +149,8 @@ class TransactionFragment :
                 requestPermissions(arrayOf(Manifest.permission.CAMERA), 123)
             }
         }
+
+        transactionCreate.onClick = viewModel::onCreateTransactionClick
     }
 
     override fun onRequestPermissionsResult(

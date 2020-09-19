@@ -1,9 +1,6 @@
 package com.github.emilg1101.budgeting.domain.repository
 
-import com.github.emilg1101.budgeting.domain.entity.Account
-import com.github.emilg1101.budgeting.domain.entity.Category
-import com.github.emilg1101.budgeting.domain.entity.EmptyCategory
-import com.github.emilg1101.budgeting.domain.entity.ICategory
+import com.github.emilg1101.budgeting.domain.entity.*
 import kotlinx.coroutines.flow.Flow
 
 interface CategoryRepository {
@@ -12,7 +9,9 @@ interface CategoryRepository {
 
     fun getAccounts(): Flow<List<Account>>
 
-    suspend fun createAccount(account: EmptyCategory)
+    fun getIncome(): Flow<List<Income>>
+
+    suspend fun createAccount(account: EmptyCategory): Int
 
     suspend fun createCategory(category: EmptyCategory)
 
@@ -23,4 +22,6 @@ interface CategoryRepository {
     fun defaultCategories(): Flow<List<EmptyCategory>>
 
     fun defaultAccounts(): Flow<List<EmptyCategory>>
+
+    suspend fun findCategory(categoryId: Int): ICategory
 }

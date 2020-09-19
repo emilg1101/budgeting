@@ -1,22 +1,28 @@
 package com.github.emilg1101.budgeting.transaction.ui
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.asLiveData
-import androidx.lifecycle.switchMap
+import androidx.lifecycle.*
+import androidx.navigation.NavController
 import com.github.emilg1101.budgeting.core.base.BaseViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.core.mapFlatten
 import com.github.emilg1101.budgeting.domain.repository.CategoryRepository
+import com.github.emilg1101.budgeting.transaction.domain.CreateTransactionUseCase
+import com.github.emilg1101.budgeting.transaction.domain.TransactionType
 import com.github.emilg1101.budgeting.transaction.ui.model.*
 import com.github.emilg1101.budgeting.transaction.ui.picker.DateTimePickerCallback
 import com.github.emilg1101.budgeting.transaction.widget.AmountChangeCallback
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.launch
+import org.threeten.bp.OffsetDateTime
 import java.util.*
 import javax.inject.Inject
 
 @FeatureScope
 class TransactionViewModel @Inject constructor(
-    private val categoryRepository: CategoryRepository
+    private val navController: NavController,
+    private val categoryRepository: CategoryRepository,
+    private val createTransactionUseCase: CreateTransactionUseCase
 ) : BaseViewModel(), DateTimePickerCallback, AmountChangeCallback {
 
     private val _transactionDate = MutableLiveData<TransactionDate>(TransactionDate.Today())
@@ -53,6 +59,14 @@ class TransactionViewModel @Inject constructor(
                     .asLiveData()
                 TransactionType.Income -> categoryRepository.getAccounts()
                     .mapFlatten(AccountMapper)
+                    .combine(
+                        categoryRepository.getIncome().mapFlatten(IncomeMapper)
+                    ) { accounts: List<Account>, income: List<Income> ->
+                        mutableListOf<BaseCategory>().apply {
+                            this.addAll(income)
+                            this.addAll(accounts)
+                        }
+                    }
                     .asLiveData()
             }
         }
@@ -84,27 +98,42 @@ class TransactionViewModel @Inject constructor(
         _selectedEnrollmentCategory.value = category
     }
 
-    override fun onDateTimePicked(calendar: Calendar) {
-        _transactionDate.value = TransactionDate.Day(calendar)
+    override fun onDateTimePicked(timestamp: OffsetDateTime) {
+        _transactionDate.value = TransactionDate.Day(timestamp)
     }
 
     override fun onAmountChanged(amount: Float) {
         _transactionAmount.value = (amount * 100).toLong()
     }
+
+    fun onCreateTransactionClick() {
+        val amount = _transactionAmount.value ?: 0L
+        val type = _transactionType.value
+        val date = _transactionDate.value?.date
+        val fromId = _selectedWithdrawCategory.value?.id
+        val toId = _selectedEnrollmentCategory.value?.id
+        if (type != null && date != null && fromId != null && toId != null) {
+            viewModelScope.launch(Dispatchers.IO) {
+                createTransactionUseCase(
+                    amount,
+                    type,
+                    date,
+                    fromId,
+                    toId
+                )
+                launch(Dispatchers.Main) { navController.navigateUp() }
+            }
+        }
+    }
 }
 
 sealed class TransactionDate {
-    open val date: Calendar = Calendar.getInstance()
+    open val date: OffsetDateTime = OffsetDateTime.now()
 
     class Today : TransactionDate() {
-        override val date: Calendar
-            get() = Calendar.getInstance()
+        override val date: OffsetDateTime
+            get() = OffsetDateTime.now()
     }
 
-    class Day(override val date: Calendar) : TransactionDate()
-}
-
-sealed class TransactionType {
-    object Income : TransactionType()
-    object Expense : TransactionType()
+    class Day(override val date: OffsetDateTime) : TransactionDate()
 }

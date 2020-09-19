@@ -9,6 +9,7 @@ import com.github.emilg1101.budgeting.core.base.BaseViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.emojipicker.OnEmojiPickerListener
 import com.github.emilg1101.budgeting.emojipicker.model.EmojiModel
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
@@ -32,11 +33,12 @@ class CreateCategoryViewModel @Inject constructor(
         get() = _isEnabled
 
     fun create() {
-        viewModelScope.launch {
+        viewModelScope.launch(Dispatchers.IO) {
             name.value?.let { name ->
                 selectedEmoji.value?.emoji?.let { emoji ->
                     createCategoryUseCase(CreateCategoryUseCase.Params(name, emoji))
                 }
+                launch(Dispatchers.Main) { navigateUp() }
             }
         }
     }

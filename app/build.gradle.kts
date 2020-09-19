@@ -5,7 +5,6 @@ plugins {
     kotlin("android")
     kotlin("android.extensions")
     kotlin("kapt")
-    id("com.google.gms.google-services")
 }
 
 android {
@@ -89,9 +88,13 @@ dependencies {
     kapt(Libraries.Dagger.compiler)
 
     implementation("com.google.firebase:firebase-analytics:17.5.0")
+    implementation("org.threeten:threetenbp:1.4.4:no-tzdb")
+    implementation("com.jakewharton.threetenabp:threetenabp:1.2.4")
 
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.junitAndroid)
     androidTestImplementation(TestLibraries.testRunner)
     androidTestImplementation(TestLibraries.espresso)
 }
+
+apply(plugin = "com.google.gms.google-services")

@@ -19,6 +19,8 @@ dependencies {
     implementation(Libraries.Firebase.auth)
     implementation(Libraries.GoogleServices.coroutines)
 
+    implementation("org.threeten:threetenbp:1.4.4:no-tzdb")
+
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.junitAndroid)
     androidTestImplementation(TestLibraries.testRunner)

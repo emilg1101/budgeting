@@ -3,15 +3,12 @@ package com.github.emilg1101.budgeting.data.repository
 import com.github.emilg1101.budgeting.data.db.dao.CategoryDao
 import com.github.emilg1101.budgeting.data.db.entity.CategoryEntity
 import com.github.emilg1101.budgeting.data.db.entity.CategoryType
-import com.github.emilg1101.budgeting.domain.entity.Account
-import com.github.emilg1101.budgeting.domain.entity.Category
-import com.github.emilg1101.budgeting.domain.entity.EmptyCategory
-import com.github.emilg1101.budgeting.domain.entity.ICategory
+import com.github.emilg1101.budgeting.domain.entity.*
 import com.github.emilg1101.budgeting.domain.repository.CategoryRepository
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
-import java.util.*
+import java.lang.IllegalArgumentException
 import javax.inject.Inject
 
 class CategoryRepositoryImpl @Inject constructor(
@@ -24,7 +21,7 @@ class CategoryRepositoryImpl @Inject constructor(
                 Category(
                     entity.id,
                     entity.name,
-                    0L,
+                    0,
                     entity.createdAt,
                     entity.emoji
                 )
@@ -33,23 +30,38 @@ class CategoryRepositoryImpl @Inject constructor(
     }
 
     override fun getAccounts(): Flow<List<Account>> {
-        return categoryDao.getCategoriesByType(CategoryType.ACCOUNT).map {
+        return categoryDao.getCategoriesByTypeWithAmount(CategoryType.ACCOUNT).map {
             it.map { entity ->
                 Account(
                     entity.id,
                     entity.name,
-                    0L,
-                    entity.createdAt
+                    entity.amount,
+                    entity.createdAt,
+                    entity.emoji
                 )
             }
         }
     }
 
-    override suspend fun createAccount(account: EmptyCategory) {
-        val entity = account.let {
-            CategoryEntity(it.id, it.name, "", it.created, CategoryType.ACCOUNT)
+    override fun getIncome(): Flow<List<Income>> {
+        return categoryDao.getCategoriesByTypes(listOf(CategoryType.INCOME)).map {
+            it.map { entity ->
+                Income(
+                    entity.id,
+                    entity.name,
+                    0,
+                    entity.createdAt,
+                    entity.emoji
+                )
+            }
         }
-        categoryDao.insert(entity)
+    }
+
+    override suspend fun createAccount(account: EmptyCategory) : Int {
+        val entity = account.let {
+            CategoryEntity(it.id, it.name, "💳", it.created, CategoryType.ACCOUNT)
+        }
+        return categoryDao.insert(entity).toInt()
     }
 
     override suspend fun createCategory(category: EmptyCategory) {
@@ -115,6 +127,34 @@ class CategoryRepositoryImpl @Inject constructor(
                     EmptyCategory("Food", "🥑")
                 )
             )
+        }
+    }
+
+    override suspend fun findCategory(categoryId: Int): ICategory {
+        val entity = categoryDao.find(categoryId)
+        return when (entity?.type) {
+            CategoryType.ACCOUNT -> Account(
+                entity.id,
+                entity.name,
+               0,
+                entity.createdAt,
+                entity.emoji
+            )
+            CategoryType.CATEGORY -> Category(
+                entity.id,
+                entity.name,
+                0,
+                entity.createdAt,
+                entity.emoji
+            )
+            CategoryType.INCOME -> Income(
+                entity.id,
+                entity.name,
+                0,
+                entity.createdAt,
+                entity.emoji
+            )
+            else -> throw IllegalArgumentException()
         }
     }
 }

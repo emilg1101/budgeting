@@ -1,19 +1,20 @@
 package com.github.emilg1101.budgeting.domain.entity
 
-import java.util.*
+import org.threeten.bp.OffsetDateTime
 
 interface ICategory {
     val id: Int
     val name: String
     val amount: Long
-    val created: Date
+    val created: OffsetDateTime
+    val emoji: String
 }
 
-class EmptyCategory(override val name: String, val emoji: String = ""): ICategory {
+class EmptyCategory(override val name: String, override val emoji: String = "") : ICategory {
     override val amount: Long
         get() = 0
-    override val created: Date
-        get() = Date()
+    override val created: OffsetDateTime
+        get() = OffsetDateTime.now()
     override val id: Int
         get() = 0
 }

@@ -2,7 +2,7 @@ package com.github.emilg1101.budgeting.home.ui
 
 import android.os.Bundle
 import android.view.View
-import android.view.WindowInsets
+import androidx.core.view.updatePadding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.navigation.NavController
@@ -24,8 +24,7 @@ import kotlinx.android.synthetic.main.fragment_home.*
 import javax.inject.Inject
 import com.github.emilg1101.budgeting.R as R2
 
-class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home), Navigator,
-    View.OnApplyWindowInsetsListener {
+class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home), Navigator {
 
     @Inject
     lateinit var viewModelFactory: ViewModelFactory
@@ -62,15 +61,9 @@ class HomeFragment : BaseFragment<HomeViewModel>(R.layout.fragment_home), Naviga
             Glide.with(homeProfileImage).load(it.image).transform(CircleCrop())
                 .into(homeProfileImage)
         })
-        //homeStatusBar.setOnApplyWindowInsetsListener(this)
-    }
-
-    override fun onApplyWindowInsets(v: View, insets: WindowInsets): WindowInsets {
-        val topInset = insets.systemWindowInsetTop
-        if (v.layoutParams.height != topInset) {
-            v.layoutParams.height = topInset
-            v.requestLayout()
+        homeToolbar.setOnApplyWindowInsetsListener { v, insets ->
+            v.updatePadding(top = insets.systemWindowInsetTop)
+            insets
         }
-        return insets
     }
 }

@@ -1,10 +1,11 @@
 package com.github.emilg1101.budgeting.domain.entity
 
-import java.util.*
+import org.threeten.bp.OffsetDateTime
 
 data class Account(
     override val id: Int,
     override val name: String,
     override val amount: Long,
-    override val created: Date
+    override val created: OffsetDateTime,
+    override val emoji: String
 ) : ICategory

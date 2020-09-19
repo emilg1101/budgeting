@@ -1,5 +1,9 @@
 package com.github.emilg1101.budgeting.core
 
+import android.content.Context
+import androidx.core.os.ConfigurationCompat
+import org.threeten.bp.OffsetDateTime
+import org.threeten.bp.format.DateTimeFormatter
 import java.text.SimpleDateFormat
 import java.util.Calendar
 import java.util.Date
@@ -109,5 +113,13 @@ fun Calendar.clearCalendarTime(): Calendar {
         clear(Calendar.MINUTE)
         clear(Calendar.SECOND)
         clear(Calendar.MILLISECOND)
+    }
+}
+
+fun DateTimeFormatter.withLocale(context: Context): DateTimeFormatter {
+    val locales = ConfigurationCompat.getLocales(context.resources.configuration)
+    return when {
+        locales.isEmpty -> this
+        else -> withLocale(locales[0])
     }
 }

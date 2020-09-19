@@ -19,7 +19,7 @@
             android:layout_height="430dp"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/homeStatusBar">
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
                 motion:attributeName="bottomRightRadiusDp"
                 motion:customFloatValue="50" />
@@ -82,7 +82,7 @@
             motion:layout_constraintBottom_toBottomOf="@id/home_toolbar_bottom_guideline"
             motion:layout_constraintEnd_toEndOf="parent"
             motion:layout_constraintStart_toStartOf="parent"
-            motion:layout_constraintTop_toBottomOf="@id/homeStatusBar">
+            motion:layout_constraintTop_toTopOf="parent">
             <CustomAttribute
                 motion:attributeName="bottomRightRadiusDp"
                 motion:customFloatValue="0" />

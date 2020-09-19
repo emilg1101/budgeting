@@ -9,6 +9,7 @@ import androidx.emoji.text.FontRequestEmojiCompatConfig
 import androidx.fragment.app.Fragment
 import com.github.emilg1101.budgeting.core.di.component.CoreComponent
 import com.github.emilg1101.budgeting.core.di.component.DaggerCoreComponent
+import com.jakewharton.threetenabp.AndroidThreeTen
 
 class BudgetingApplication : Application() {
 
@@ -19,6 +20,7 @@ class BudgetingApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         initEmoji()
+        AndroidThreeTen.init(this)
     }
 
     private fun initEmoji() {

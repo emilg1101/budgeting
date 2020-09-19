@@ -8,6 +8,8 @@ import android.widget.DatePicker
 import android.widget.TimePicker
 import androidx.fragment.app.DialogFragment
 import com.github.emilg1101.budgeting.transaction.di.TransactionComponent
+import org.threeten.bp.OffsetDateTime
+import org.threeten.bp.ZoneOffset
 import java.util.*
 import javax.inject.Inject
 
@@ -45,8 +47,9 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener,
     }
 
     override fun onTimeSet(view: TimePicker?, hourOfDay: Int, minute: Int) {
-        pickedCalendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
-        pickedCalendar.set(Calendar.MINUTE, minute)
-        dateTimePickerCallback.onDateTimePicked(pickedCalendar)
+        val year = pickedCalendar.get(Calendar.YEAR)
+        val month = pickedCalendar.get(Calendar.MONTH)
+        val day = pickedCalendar.get(Calendar.DAY_OF_MONTH)
+        dateTimePickerCallback.onDateTimePicked(OffsetDateTime.of(year, month+1, day, hourOfDay, minute, 0, 0, ZoneOffset.UTC))
     }
 }

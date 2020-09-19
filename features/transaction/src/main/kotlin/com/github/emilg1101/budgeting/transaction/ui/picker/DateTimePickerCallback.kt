@@ -1,7 +1,7 @@
 package com.github.emilg1101.budgeting.transaction.ui.picker
 
-import java.util.*
+import org.threeten.bp.OffsetDateTime
 
 interface DateTimePickerCallback {
-    fun onDateTimePicked(calendar: Calendar)
+    fun onDateTimePicked(timestamp: OffsetDateTime)
 }

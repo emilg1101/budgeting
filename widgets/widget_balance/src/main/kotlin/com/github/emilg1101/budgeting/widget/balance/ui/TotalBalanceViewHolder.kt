@@ -5,6 +5,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelStoreOwner
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelFactory
+import com.github.emilg1101.budgeting.core.toCurrency
 import com.github.emilg1101.budgeting.core.view.adapter.LifecycleViewHolder
 import com.github.emilg1101.budgeting.widget.balance.di.TotalBalanceInjector
 import kotlinx.android.synthetic.main.widget_total_balance.view.*
@@ -26,7 +27,7 @@ class TotalBalanceViewHolder(view: View): LifecycleViewHolder(view) {
         viewModel = ViewModelProvider(viewModelStoreOwner, viewModelFactory).get(
             TotalBalanceViewModel::class.java)
         viewModel.balance.observe(this, Observer {
-            itemView.balanceAmount.text = "$it ₽"
+            itemView.balanceAmount.text = it.toCurrency()
         })
     }
 }

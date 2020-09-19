@@ -46,7 +46,7 @@
 
     <fragment
         android:id="@+id/analytics"
-        android:name="com.github.emilg1101.budgeting.analytics.AnalyticsFragment"
+        android:name="com.github.emilg1101.budgeting.analytics.main.ui.AnalyticsFragment"
         android:label="AnalyticsFragment"
         app:moduleName="analytics"
         tools:layout="@layout/fragment_analytics" />
