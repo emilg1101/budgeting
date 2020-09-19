@@ -33,12 +33,12 @@ class CreateCategoryViewModel @Inject constructor(
         get() = _isEnabled
 
     fun create() {
-        viewModelScope.launch(Dispatchers.IO) {
+        viewModelScope.launch {
             name.value?.let { name ->
                 selectedEmoji.value?.emoji?.let { emoji ->
                     createCategoryUseCase(CreateCategoryUseCase.Params(name, emoji))
                 }
-                launch(Dispatchers.Main) { navigateUp() }
+                navigateUp()
             }
         }
     }

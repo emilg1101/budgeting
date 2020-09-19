@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="136dp"
     android:layout_height="64dp"
-    android:background="#c4c4c4">
+    android:background="@drawable/account_item_background">
 
     <TextView
         android:id="@+id/accountName"

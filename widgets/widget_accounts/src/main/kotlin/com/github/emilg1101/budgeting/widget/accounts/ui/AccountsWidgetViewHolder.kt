@@ -8,6 +8,8 @@ import androidx.navigation.NavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView.HORIZONTAL
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelFactory
+import com.github.emilg1101.budgeting.core.dpToPx
+import com.github.emilg1101.budgeting.core.view.GridSpacingItemDecoration
 import com.github.emilg1101.budgeting.core.view.adapter.LifecycleViewHolder
 import com.github.emilg1101.budgeting.widget.accounts.di.AccountsInjector
 import com.github.emilg1101.budgeting.widget.accounts.ui.adapter.CategoryAdapter
@@ -35,16 +37,16 @@ class AccountsWidgetViewHolder(view: View) : LifecycleViewHolder(view) {
         AccountsInjector.component.inject(this)
         super.onAppear()
         viewModel = ViewModelProvider(viewModelStoreOwner, viewModelFactory).get(
-            AccountsWidgetViewModel::class.java)
-        itemView.widgetAccounts.layoutManager = GridLayoutManager(itemView.context, 2, HORIZONTAL, false)
+            AccountsWidgetViewModel::class.java
+        )
+        itemView.widgetAccounts.layoutManager =
+            GridLayoutManager(itemView.context, 2, HORIZONTAL, false)
         itemView.widgetAccounts.adapter = categoryAdapter
-        /*itemView.widgetAccounts.addItemDecoration(
+        itemView.widgetAccounts.addItemDecoration(
             GridSpacingItemDecoration(
-                2,
-                itemView.context.dpToPx(10),
-                true
+                itemView.context.dpToPx(10)
             )
-        )*/
+        )
         categoryAdapter.onAddClick = {
             navController.navigate(R2.id.createAccount)
         }

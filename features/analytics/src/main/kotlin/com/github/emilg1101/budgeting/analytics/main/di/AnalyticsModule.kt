@@ -8,6 +8,7 @@ import com.github.emilg1101.budgeting.analytics.main.ui.AnalyticsFragment
 import com.github.emilg1101.budgeting.analytics.main.ui.AnalyticsViewModel
 import com.github.emilg1101.budgeting.analytics.main.ui.adapter.AnalyticsFragmentAdapter
 import com.github.emilg1101.budgeting.core.di.qualifier.ShortMonthDate
+import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelKey
 import dagger.Binds
 import dagger.Module
@@ -39,6 +40,7 @@ interface AnalyticsModule {
         fun provideLifecycle(fragment: AnalyticsFragment) = fragment.lifecycle
 
         @JvmStatic
+        @FeatureScope
         @Provides
         fun provideAnalyticsFragmentAdapter(
             fragmentManager: FragmentManager,

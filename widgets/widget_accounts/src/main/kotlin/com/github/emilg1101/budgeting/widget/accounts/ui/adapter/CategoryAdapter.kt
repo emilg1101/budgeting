@@ -4,6 +4,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.github.emilg1101.budgeting.core.toCurrency
 import com.github.emilg1101.budgeting.domain.entity.Account
 import com.github.emilg1101.budgeting.widget.accounts.R
 import kotlinx.android.synthetic.main.item_account.view.*
@@ -48,6 +49,7 @@ class CategoryAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
 
         fun bind(model: Account) = with(itemView) {
             accountName.text = model.name
+            accountBalance.text = model.amount.toCurrency()
         }
     }
 

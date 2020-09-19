@@ -11,11 +11,9 @@ import com.github.emilg1101.budgeting.transaction.domain.TransactionType
 import com.github.emilg1101.budgeting.transaction.ui.model.*
 import com.github.emilg1101.budgeting.transaction.ui.picker.DateTimePickerCallback
 import com.github.emilg1101.budgeting.transaction.widget.AmountChangeCallback
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import org.threeten.bp.OffsetDateTime
-import java.util.*
 import javax.inject.Inject
 
 @FeatureScope
@@ -113,7 +111,7 @@ class TransactionViewModel @Inject constructor(
         val fromId = _selectedWithdrawCategory.value?.id
         val toId = _selectedEnrollmentCategory.value?.id
         if (type != null && date != null && fromId != null && toId != null) {
-            viewModelScope.launch(Dispatchers.IO) {
+            viewModelScope.launch {
                 createTransactionUseCase(
                     amount,
                     type,
@@ -121,7 +119,7 @@ class TransactionViewModel @Inject constructor(
                     fromId,
                     toId
                 )
-                launch(Dispatchers.Main) { navController.navigateUp() }
+                navController.navigateUp()
             }
         }
     }
