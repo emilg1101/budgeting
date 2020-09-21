@@ -7,6 +7,8 @@ import androidx.core.provider.FontRequest
 import androidx.emoji.text.EmojiCompat
 import androidx.emoji.text.FontRequestEmojiCompatConfig
 import androidx.fragment.app.Fragment
+import androidx.work.Configuration
+import androidx.work.WorkManager
 import com.github.emilg1101.budgeting.core.di.component.CoreComponent
 import com.github.emilg1101.budgeting.core.di.component.DaggerCoreComponent
 import com.jakewharton.threetenabp.AndroidThreeTen
@@ -21,6 +23,10 @@ class BudgetingApplication : Application() {
         super.onCreate()
         initEmoji()
         AndroidThreeTen.init(this)
+        WorkManager.initialize(
+            this,
+            Configuration.Builder().setWorkerFactory(coreComponent.provideWorkerFactory()).build()
+        )
     }
 
     private fun initEmoji() {

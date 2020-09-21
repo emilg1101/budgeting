@@ -42,6 +42,7 @@ class SettingsFragment : BottomSheetDialogFragment(), BottomBarCovering {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         settingsLogOut.onClick = viewModel::onLogOutClick
+        settingsSync.onClick = viewModel::onSyncClick
         viewModel.navigation.observe(viewLifecycleOwner, Observer {
             it?.getContentIfNotHandled()?.let { command ->
                 when (command) {

@@ -20,6 +20,16 @@
         app:layout_constraintTop_toTopOf="parent"
         app:navGraph="@navigation/navigation"/>
 
+    <com.google.android.material.progressindicator.ProgressIndicator
+        android:id="@+id/syncProgress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:indeterminate="true"
+        app:indicatorColor="@android:color/holo_blue_light"
+        app:growMode="incoming"
+        app:trackColor="@color/colorPrimary"
+        android:visibility="gone"/>
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_nav"
         style="@style/Widget.MaterialComponents.BottomNavigationView"

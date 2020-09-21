@@ -57,7 +57,7 @@ object AndroidSdk {
 object Libraries {
 
     object Versions {
-        const val coroutinesVersion = "1.3.0"
+        const val coroutinesVersion = "1.3.6"
         const val timberVersion = "4.7.1"
         const val gsonVersion = "2.8.6"
         const val codeScannerVersion = "2.1.0"
@@ -86,7 +86,7 @@ object Libraries {
             const val lifecycleVersion = "2.1.0"
             const val multidexVersion = "2.0.1"
             const val navigationVersion = "2.3.0"
-            const val materialVersion = "1.2.0-alpha03"
+            const val materialVersion = "1.3.0-alpha02"
             const val livedataVersion = "2.2.0-rc03"
             const val pagingVersion = "2.1.1"
         }

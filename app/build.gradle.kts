@@ -60,6 +60,9 @@ android {
         ":widgets:widget_balance",
         ":widgets:widget_accounts"
     )
+    packagingOptions {
+        exclude("META-INF/DEPENDENCIES")
+    }
 }
 
 dependencies {
@@ -90,6 +93,8 @@ dependencies {
     implementation("com.google.firebase:firebase-analytics:17.5.0")
     implementation("org.threeten:threetenbp:1.4.4:no-tzdb")
     implementation("com.jakewharton.threetenabp:threetenabp:1.2.4")
+    implementation("androidx.work:work-runtime:2.4.0")
+    implementation("com.google.guava:guava:27.0.1-android")
 
     testImplementation(TestLibraries.junit4)
     androidTestImplementation(TestLibraries.junitAndroid)

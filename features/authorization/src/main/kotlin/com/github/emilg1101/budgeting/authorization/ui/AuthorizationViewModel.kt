@@ -9,6 +9,8 @@ import com.github.emilg1101.budgeting.core.base.BaseViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
+import com.google.android.gms.common.Scopes
+import com.google.android.gms.common.api.Scope
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -24,6 +26,7 @@ class AuthorizationViewModel @Inject constructor(
 
     fun onSignInButtonClick() {
         val gsoReq = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+            .requestScopes(Scope(Scopes.DRIVE_APPFOLDER))
             .requestIdToken("190478081233-6fpi2p8su255j7fenef0jr12c59rqqr2.apps.googleusercontent.com")
             .requestEmail()
             .build()

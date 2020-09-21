@@ -2,17 +2,15 @@ package com.github.emilg1101.budgeting.core.di.module
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.github.emilg1101.budgeting.data.repository.CategoryRepositoryImpl
-import com.github.emilg1101.budgeting.data.repository.ReportRepositoryImpl
-import com.github.emilg1101.budgeting.data.repository.TransactionRepositoryImpl
-import com.github.emilg1101.budgeting.data.repository.UserRepositoryImpl
-import com.github.emilg1101.budgeting.domain.repository.CategoryRepository
-import com.github.emilg1101.budgeting.domain.repository.ReportRepository
-import com.github.emilg1101.budgeting.domain.repository.TransactionRepository
-import com.github.emilg1101.budgeting.domain.repository.UserRepository
+import com.github.emilg1101.budgeting.core.di.worker.WorkerKey
+import com.github.emilg1101.budgeting.data.repository.*
+import com.github.emilg1101.budgeting.data.worker.ChildWorkerFactory
+import com.github.emilg1101.budgeting.data.worker.DataSyncWorker
+import com.github.emilg1101.budgeting.domain.repository.*
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
+import dagger.multibindings.IntoMap
 
 @Module
 interface CoreDataModule {
@@ -28,6 +26,14 @@ interface CoreDataModule {
 
     @Binds
     fun bindReportRepository(repository: ReportRepositoryImpl): ReportRepository
+
+    @Binds
+    fun bindSyncRepository(repository: SyncRepositoryImpl): SyncRepository
+
+    @Binds
+    @IntoMap
+    @WorkerKey(DataSyncWorker::class)
+    fun bindDataSyncWorker(factory: DataSyncWorker.Factory): ChildWorkerFactory
 
     @Module
     companion object {

@@ -2,6 +2,7 @@ package com.github.emilg1101.budgeting.app
 
 import android.os.Bundle
 import androidx.activity.viewModels
+import androidx.core.view.isVisible
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.NavHostFragment
@@ -10,6 +11,7 @@ import com.github.emilg1101.budgeting.R
 import com.github.emilg1101.budgeting.app.di.inject
 import com.github.emilg1101.budgeting.core.base.BottomAppActivity
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelFactory
+import com.github.emilg1101.budgeting.domain.entity.SyncStatus
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
@@ -42,6 +44,18 @@ class AppActivity : BottomAppActivity() {
             navGraph.startDestination = destination
             navController.graph = navGraph
             bottomNavigationView?.setupWithNavController(findNavController(R.id.my_nav_host_fragment))
+        })
+        viewModel.syncStatus.observe(this, Observer {
+            when (it) {
+                SyncStatus.RUNNING -> {
+                    syncProgress.isIndeterminate = true
+                    syncProgress.isVisible = true
+                }
+                SyncStatus.FINISHED -> {
+                    syncProgress.isVisible = false
+                    syncProgress.isIndeterminate = false
+                }
+            }
         })
     }
 }

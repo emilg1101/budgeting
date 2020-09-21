@@ -7,10 +7,8 @@ import com.github.emilg1101.budgeting.core.di.module.DateTimeFormatModule
 import com.github.emilg1101.budgeting.core.di.qualifier.*
 import com.github.emilg1101.budgeting.data.DataModule
 import com.github.emilg1101.budgeting.data.db.module.DatabaseModule
-import com.github.emilg1101.budgeting.domain.repository.CategoryRepository
-import com.github.emilg1101.budgeting.domain.repository.ReportRepository
-import com.github.emilg1101.budgeting.domain.repository.TransactionRepository
-import com.github.emilg1101.budgeting.domain.repository.UserRepository
+import com.github.emilg1101.budgeting.core.di.worker.AppWorkerFactory
+import com.github.emilg1101.budgeting.domain.repository.*
 import dagger.BindsInstance
 import dagger.Component
 import org.threeten.bp.format.DateTimeFormatter
@@ -37,6 +35,8 @@ interface CoreComponent {
 
     fun provideReportRepository(): ReportRepository
 
+    fun provideSyncRepository(): SyncRepository
+
     @MediumDateTime
     fun provideMediumDateTimeFormatter(): DateTimeFormatter
 
@@ -51,4 +51,6 @@ interface CoreComponent {
 
     @ShortMonthDate
     fun provideShortMonthFormatter(): DateTimeFormatter
+
+    fun provideWorkerFactory(): AppWorkerFactory
 }

@@ -20,6 +20,9 @@ interface TransactionDao {
     @Query("SELECT * FROM transactions ORDER BY createdAt DESC")
     fun getTransactions(): Flow<List<TransactionAndCategoriesEntity>>
 
+    @Query("SELECT * FROM transactions ORDER BY createdAt DESC")
+    fun getAllTransactions(): Flow<List<TransactionEntity>>
+
     @Query("SELECT * FROM transactions WHERE type = 0 ORDER BY createdAt DESC")
     fun getExpensesTransactions(): Flow<List<TransactionAndCategoriesEntity>>
 
