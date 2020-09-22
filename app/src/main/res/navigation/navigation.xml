@@ -52,11 +52,11 @@
         tools:layout="@layout/fragment_analytics" />
 
     <fragment
-        android:id="@+id/wallets"
-        android:name="com.github.emilg1101.budgeting.wallets.WalletsFragment"
-        android:label="WalletsFragment"
+        android:id="@+id/allAccounts"
+        android:name="com.github.emilg1101.budgeting.wallets.main.ui.AllAccountsFragment"
+        android:label="AllAccountsFragment"
         app:moduleName="wallets"
-        tools:layout="@layout/fragment_wallets" />
+        tools:layout="@layout/fragment_all_accounts" />
 
     <dialog
         android:id="@+id/datePicker"

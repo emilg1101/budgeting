@@ -16,7 +16,7 @@
         android:title="Analytics" />
 
     <item
-        android:id="@+id/wallets"
+        android:id="@+id/allAccounts"
         android:icon="@drawable/ic_wallets"
         android:title="Wallets" />
 </menu>
