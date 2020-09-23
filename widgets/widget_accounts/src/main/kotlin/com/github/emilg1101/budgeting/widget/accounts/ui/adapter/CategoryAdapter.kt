@@ -45,7 +45,7 @@ class CategoryAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
         }
     }
 
-    inner class AccountViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+    class AccountViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         fun bind(model: Account) = with(itemView) {
             accountName.text = model.name
@@ -56,7 +56,7 @@ class CategoryAdapter @Inject constructor() : RecyclerView.Adapter<RecyclerView.
     inner class AccountAddViewHolder(view: View): RecyclerView.ViewHolder(view) {
 
         fun bind() = with(itemView) {
-            accountName.text = "Add"
+            accountName.text = "Add account"
             setOnClickListener {
                 onAddClick?.invoke()
             }
