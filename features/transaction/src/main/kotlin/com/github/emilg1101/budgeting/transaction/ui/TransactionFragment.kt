@@ -51,7 +51,7 @@ class TransactionFragment :
     override val viewModel: TransactionViewModel by viewModels { viewModelFactory }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        TransactionComponent.init(this).inject(this)
+        TransactionComponent.init(this)?.inject(this)
         super.onCreate(savedInstanceState)
     }
 
@@ -160,5 +160,10 @@ class TransactionFragment :
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         findNavController().navigate(R2.id.scanner)
+    }
+
+    override fun onDestroy() {
+        TransactionComponent.component = null
+        super.onDestroy()
     }
 }

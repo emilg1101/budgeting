@@ -100,20 +100,11 @@ class CategoryRepositoryImpl @Inject constructor(
             emit(
                 listOf(
                     EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑")
+                    EmptyCategory("Transport", "🚗"),
+                    EmptyCategory("Travel", "✈️"),
+                    EmptyCategory("Clothing", "👕"),
+                    EmptyCategory("Grocery Store", "🛒"),
+                    EmptyCategory("Games", "🎮")
                 )
             )
         }
@@ -123,8 +114,8 @@ class CategoryRepositoryImpl @Inject constructor(
         return flow {
             emit(
                 listOf(
-                    EmptyCategory("Food", "🥑"),
-                    EmptyCategory("Food", "🥑")
+                    EmptyCategory("Cash", "💵"),
+                    EmptyCategory("Credit card", "💳")
                 )
             )
         }

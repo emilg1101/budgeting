@@ -4,17 +4,19 @@ import android.content.Context
 import android.content.SharedPreferences
 import com.github.emilg1101.budgeting.core.di.module.CoreDataModule
 import com.github.emilg1101.budgeting.core.di.module.DateTimeFormatModule
+import com.github.emilg1101.budgeting.core.di.module.InteractorsModule
 import com.github.emilg1101.budgeting.core.di.qualifier.*
 import com.github.emilg1101.budgeting.data.DataModule
 import com.github.emilg1101.budgeting.data.db.module.DatabaseModule
 import com.github.emilg1101.budgeting.core.di.worker.AppWorkerFactory
 import com.github.emilg1101.budgeting.domain.repository.*
+import com.github.emilg1101.budgeting.scanner.api.ScannerInteractor
 import dagger.BindsInstance
 import dagger.Component
 import org.threeten.bp.format.DateTimeFormatter
 import javax.inject.Singleton
 
-@Component(modules = [CoreDataModule::class, DatabaseModule::class, DataModule::class, DateTimeFormatModule::class])
+@Component(modules = [CoreDataModule::class, DatabaseModule::class, DataModule::class, DateTimeFormatModule::class, InteractorsModule::class])
 @Singleton
 interface CoreComponent {
 
@@ -53,4 +55,6 @@ interface CoreComponent {
     fun provideShortMonthFormatter(): DateTimeFormatter
 
     fun provideWorkerFactory(): AppWorkerFactory
+
+    fun provideScannerInteractor(): ScannerInteractor
 }

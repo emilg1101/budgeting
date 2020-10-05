@@ -65,8 +65,8 @@
 
     <fragment
         android:id="@+id/scanner"
-        android:name="com.github.emilg1101.budgeting.transaction.ui.scanner.ScannerFragment"
-        app:moduleName="transaction"
+        android:name="com.github.emilg1101.budgeting.scanner.ui.ScannerFragment"
+        app:moduleName="scanner"
         tools:layout="@layout/fragment_scanner" />
 
     <dialog

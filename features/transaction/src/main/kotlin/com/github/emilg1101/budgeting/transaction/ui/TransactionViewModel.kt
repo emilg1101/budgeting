@@ -3,24 +3,27 @@ package com.github.emilg1101.budgeting.transaction.ui
 import androidx.lifecycle.*
 import androidx.navigation.NavController
 import com.github.emilg1101.budgeting.core.base.BaseViewModel
-import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.core.mapFlatten
 import com.github.emilg1101.budgeting.domain.repository.CategoryRepository
+import com.github.emilg1101.budgeting.scanner.api.ScannerInteractor
+import com.github.emilg1101.budgeting.transaction.di.TransactionScope
 import com.github.emilg1101.budgeting.transaction.domain.CreateTransactionUseCase
 import com.github.emilg1101.budgeting.transaction.domain.TransactionType
 import com.github.emilg1101.budgeting.transaction.ui.model.*
 import com.github.emilg1101.budgeting.transaction.ui.picker.DateTimePickerCallback
 import com.github.emilg1101.budgeting.transaction.widget.AmountChangeCallback
+import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.launch
 import org.threeten.bp.OffsetDateTime
 import javax.inject.Inject
 
-@FeatureScope
+@TransactionScope
 class TransactionViewModel @Inject constructor(
     private val navController: NavController,
     private val categoryRepository: CategoryRepository,
-    private val createTransactionUseCase: CreateTransactionUseCase
+    private val createTransactionUseCase: CreateTransactionUseCase,
+    private val scannerInteractor: ScannerInteractor
 ) : BaseViewModel(), DateTimePickerCallback, AmountChangeCallback {
 
     private val _transactionDate = MutableLiveData<TransactionDate>(TransactionDate.Today())
@@ -78,6 +81,16 @@ class TransactionViewModel @Inject constructor(
     private val _selectedEnrollmentCategory = MutableLiveData<BaseCategory>()
     val selectedEnrollmentCategory: LiveData<BaseCategory>
         get() = _selectedEnrollmentCategory
+
+    init {
+        viewModelScope.launch {
+            scannerInteractor.scannerResult.collect {
+                _transactionAmount.value = it.amount
+                _transactionType.value = TransactionType.Expense
+                _transactionDate.value = TransactionDate.Day(it.date)
+            }
+        }
+    }
 
     fun toggleTransactionType() {
         if (_transactionType.value == TransactionType.Income) {

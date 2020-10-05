@@ -6,6 +6,7 @@ dependencies {
     implementDomain()
     implementData()
     implementDevice()
+    api(project(":scanner-api"))
 
     implementation(Libraries.coroutinesAndroid)
 

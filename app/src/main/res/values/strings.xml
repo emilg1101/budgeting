@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidAppTemplate</string>
+    <string name="app_name">Budgeting</string>
     <string name="title_home">Home</string>
     <string name="title_transaction">Transaction</string>
     <string name="title_analytics">Analytics</string>
@@ -8,4 +8,5 @@
     <string name="title_onboarding">Onboarding</string>
     <string name="title_widget_balance">Widget Balance</string>
     <string name="title_widget_accounts">Widget Accounts</string>
+    <string name="title_scanner">Scanner</string>
 </resources>

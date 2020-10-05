@@ -1,7 +1,6 @@
 package com.github.emilg1101.budgeting.transaction.di
 
 import androidx.lifecycle.ViewModel
-import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelKey
 import com.github.emilg1101.budgeting.transaction.ui.TransactionViewModel
 import com.github.emilg1101.budgeting.transaction.ui.adapter.CategoryAdapter
@@ -16,13 +15,13 @@ import javax.inject.Named
 interface TransactionModule {
 
     @Binds
-    @FeatureScope
+    @TransactionScope
     @IntoMap
     @ViewModelKey(TransactionViewModel::class)
     fun provideTransactionViewModel(viewModel: TransactionViewModel): ViewModel
 
     @Binds
-    @FeatureScope
+    @TransactionScope
     fun bindDateTimePickerCallback(viewModel: TransactionViewModel): DateTimePickerCallback
 
     @Module
@@ -30,11 +29,13 @@ interface TransactionModule {
 
         @JvmStatic
         @Provides
+        @TransactionScope
         @Named("Withdraw")
         fun provideWithdrawAdapter(): CategoryAdapter = CategoryAdapter()
 
         @JvmStatic
         @Provides
+        @TransactionScope
         @Named("Enrollment")
         fun provideEnrollmentAdapter(): CategoryAdapter = CategoryAdapter()
     }

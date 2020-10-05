@@ -31,7 +31,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener,
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        TransactionComponent.component.inject(this)
+        TransactionComponent.component?.inject(this)
         super.onCreate(savedInstanceState)
     }
 

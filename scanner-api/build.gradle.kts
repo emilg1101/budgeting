@@ -1,0 +1,13 @@
+plugins {
+    id("kotlin")
+}
+
+sourceSets {
+    getByName("main").java.srcDir("src/main/kotlin")
+}
+
+dependencies {
+    api(Libraries.kotlinStd)
+    api(Libraries.coroutinesCore)
+    implementation("org.threeten:threetenbp:1.4.4:no-tzdb")
+}

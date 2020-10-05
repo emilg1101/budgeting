@@ -1,3 +1,4 @@
+include(":scanner-api")
 listOf(
     "app",
     "core",
@@ -10,6 +11,7 @@ listOf(
     ":features:wallets",
     ":features:authorization",
     ":features:onboarding",
+    "features:scanner",
     ":widgets:widget_core",
     ":widgets:widget_balance",
     ":widgets:widget_accounts"

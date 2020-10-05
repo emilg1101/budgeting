@@ -4,4 +4,5 @@ plugins {
 
 dependencies {
     api(project(":scanner-api"))
+    implementation(Libraries.codeScanner)
 }

@@ -53,7 +53,8 @@
         android:layout_marginEnd="32dp"
         android:autofillHints="false"
         android:hint="Amount"
-        android:inputType="numberDecimal"
+        android:inputType="number"
+        android:importantForAutofill="noExcludeDescendants"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/createAccountName" />
