@@ -1,4 +1,3 @@
-include(":scanner-api")
 listOf(
     "app",
     "core",
@@ -11,8 +10,10 @@ listOf(
     ":features:wallets",
     ":features:authorization",
     ":features:onboarding",
-    "features:scanner",
+    ":features:scanner",
+    ":features:create_account",
     ":widgets:widget_core",
     ":widgets:widget_balance",
-    ":widgets:widget_accounts"
+    ":widgets:widget_accounts",
+    ":scanner-api"
 ).forEach { module -> include(module) }

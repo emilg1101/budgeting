@@ -1,7 +1,7 @@
-package com.github.emilg1101.budgeting.account.di
+package com.github.emilg1101.budgeting.create_account.di
 
 import androidx.lifecycle.ViewModel
-import com.github.emilg1101.budgeting.account.ui.CreateAccountViewModel
+import com.github.emilg1101.budgeting.create_account.ui.CreateAccountViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelKey
 import dagger.Binds

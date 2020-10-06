@@ -58,6 +58,7 @@ android {
         ":features:authorization",
         ":features:onboarding",
         ":features:scanner",
+        ":features:create_account",
         ":widgets:widget_balance",
         ":widgets:widget_accounts"
     )

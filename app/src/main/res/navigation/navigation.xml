@@ -71,7 +71,8 @@
 
     <dialog
         android:id="@+id/createAccount"
-        android:name="com.github.emilg1101.budgeting.account.ui.CreateAccountFragment"
+        android:name="com.github.emilg1101.budgeting.create_account.ui.CreateAccountFragment"
+        app:moduleName="create-account"
         tools:layout="@layout/fragment_create_account" />
 
     <dialog

@@ -1,4 +1,4 @@
-package com.github.emilg1101.budgeting.account.ui
+package com.github.emilg1101.budgeting.create_account.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,15 +6,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.github.emilg1101.budgeting.R
-import com.github.emilg1101.budgeting.account.di.DaggerCreateAccountComponent
 import com.github.emilg1101.budgeting.core.base.BottomBarCovering
 import com.github.emilg1101.budgeting.core.bind
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelFactory
 import com.github.emilg1101.budgeting.coreComponent
+import com.github.emilg1101.budgeting.create_account.R
+import com.github.emilg1101.budgeting.create_account.di.DaggerCreateAccountComponent
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_create_account.*
 import javax.inject.Inject
+import com.github.emilg1101.budgeting.R as R2
 
 class CreateAccountFragment : BottomSheetDialogFragment(), BottomBarCovering {
 
@@ -50,6 +51,6 @@ class CreateAccountFragment : BottomSheetDialogFragment(), BottomBarCovering {
     }
 
     override fun getTheme(): Int {
-        return R.style.AppBottomSheetDialogTheme
+        return R2.style.AppBottomSheetDialogTheme
     }
 }
