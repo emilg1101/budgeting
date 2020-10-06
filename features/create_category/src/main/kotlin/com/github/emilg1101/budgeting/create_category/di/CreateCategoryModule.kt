@@ -1,7 +1,7 @@
-package com.github.emilg1101.budgeting.category.di
+package com.github.emilg1101.budgeting.create_category.di
 
 import androidx.lifecycle.ViewModel
-import com.github.emilg1101.budgeting.category.ui.CreateCategoryViewModel
+import com.github.emilg1101.budgeting.create_category.ui.CreateCategoryViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelKey
 import com.github.emilg1101.budgeting.emojipicker.OnEmojiPickerListener

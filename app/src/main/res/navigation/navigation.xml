@@ -72,12 +72,13 @@
     <dialog
         android:id="@+id/createAccount"
         android:name="com.github.emilg1101.budgeting.create_account.ui.CreateAccountFragment"
-        app:moduleName="create-account"
+        app:moduleName="create_account"
         tools:layout="@layout/fragment_create_account" />
 
     <dialog
         android:id="@+id/createCategory"
-        android:name="com.github.emilg1101.budgeting.category.ui.CreateCategoryFragment"
+        android:name="com.github.emilg1101.budgeting.create_category.ui.CreateCategoryFragment"
+        app:moduleName="create_category"
         tools:layout="@layout/fragment_create_category" />
 
     <dialog
