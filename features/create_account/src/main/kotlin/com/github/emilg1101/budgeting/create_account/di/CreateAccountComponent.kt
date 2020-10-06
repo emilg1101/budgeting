@@ -1,6 +1,6 @@
-package com.github.emilg1101.budgeting.account.di
+package com.github.emilg1101.budgeting.create_account.di
 
-import com.github.emilg1101.budgeting.account.ui.CreateAccountFragment
+import com.github.emilg1101.budgeting.create_account.ui.CreateAccountFragment
 import com.github.emilg1101.budgeting.core.di.component.CoreComponent
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import dagger.Component

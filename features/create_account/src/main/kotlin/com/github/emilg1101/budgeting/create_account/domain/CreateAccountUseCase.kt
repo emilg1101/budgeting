@@ -1,4 +1,4 @@
-package com.github.emilg1101.budgeting.account.domain
+package com.github.emilg1101.budgeting.create_account.domain
 
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.domain.BaseUseCase

@@ -6,7 +6,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import androidx.navigation.fragment.findNavController
 import com.github.emilg1101.budgeting.R
 import com.github.emilg1101.budgeting.category.di.DaggerCreateCategoryComponent
 import com.github.emilg1101.budgeting.core.base.BottomBarCovering

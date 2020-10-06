@@ -1,7 +1,6 @@
 package com.github.emilg1101.budgeting.category.di
 
 import androidx.lifecycle.ViewModel
-import com.github.emilg1101.budgeting.account.ui.CreateAccountViewModel
 import com.github.emilg1101.budgeting.category.ui.CreateCategoryViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelKey

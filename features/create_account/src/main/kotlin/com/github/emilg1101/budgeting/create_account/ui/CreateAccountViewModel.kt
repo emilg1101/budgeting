@@ -1,14 +1,12 @@
-package com.github.emilg1101.budgeting.account.ui
+package com.github.emilg1101.budgeting.create_account.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import androidx.navigation.NavDirections
-import com.github.emilg1101.budgeting.account.domain.CreateAccountUseCase
+import com.github.emilg1101.budgeting.create_account.domain.CreateAccountUseCase
 import com.github.emilg1101.budgeting.core.base.BaseViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
