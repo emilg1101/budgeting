@@ -1,4 +1,4 @@
-package com.github.emilg1101.budgeting.category.ui
+package com.github.emilg1101.budgeting.create_category.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,18 +6,19 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
-import com.github.emilg1101.budgeting.R
-import com.github.emilg1101.budgeting.category.di.DaggerCreateCategoryComponent
+import com.github.emilg1101.budgeting.create_category.R
 import com.github.emilg1101.budgeting.core.base.BottomBarCovering
 import com.github.emilg1101.budgeting.core.bind
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelFactory
 import com.github.emilg1101.budgeting.coreComponent
+import com.github.emilg1101.budgeting.create_category.di.DaggerCreateCategoryComponent
 import com.github.emilg1101.budgeting.emojipicker.di.EmojiPickerDependencies
 import com.github.emilg1101.budgeting.emojipicker.di.HasEmojiPickerDependencies
 import com.github.emilg1101.budgeting.emojipicker.ui.EmojiPickerFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_create_category.*
 import javax.inject.Inject
+import com.github.emilg1101.budgeting.R as R2
 
 class CreateCategoryFragment : BottomSheetDialogFragment(), BottomBarCovering, HasEmojiPickerDependencies {
 
@@ -53,10 +54,13 @@ class CreateCategoryFragment : BottomSheetDialogFragment(), BottomBarCovering, H
             createCategoryDone.isEnabled = it
         })
         createCategoryEmoji.setOnClickListener { EmojiPickerFragment().show(childFragmentManager, "") }
-        createCategoryDone.setOnClickListener { viewModel.create() }
+        createCategoryDone.setOnClickListener {
+            viewModel.create()
+            dismiss()
+        }
     }
 
     override fun getTheme(): Int {
-        return R.style.AppBottomSheetDialogTheme
+        return R2.style.AppBottomSheetDialogTheme
     }
 }

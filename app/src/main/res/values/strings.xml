@@ -10,4 +10,5 @@
     <string name="title_widget_accounts">Widget Accounts</string>
     <string name="title_scanner">Scanner</string>
     <string name="title_create_account">Create Account</string>
+    <string name="title_create_category">Create Category</string>
 </resources>

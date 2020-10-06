@@ -1,15 +1,14 @@
-package com.github.emilg1101.budgeting.category.ui
+package com.github.emilg1101.budgeting.create_category.ui
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MediatorLiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.github.emilg1101.budgeting.category.domain.CreateCategoryUseCase
+import com.github.emilg1101.budgeting.create_category.domain.CreateCategoryUseCase
 import com.github.emilg1101.budgeting.core.base.BaseViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.emojipicker.OnEmojiPickerListener
 import com.github.emilg1101.budgeting.emojipicker.model.EmojiModel
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
