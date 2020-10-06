@@ -82,11 +82,6 @@
         tools:layout="@layout/fragment_create_category" />
 
     <dialog
-        android:id="@+id/emojiPicker"
-        android:name="com.github.emilg1101.budgeting.emojipicker.ui.EmojiPickerFragment"
-        tools:layout="@layout/fragment_emoji_picker" />
-
-    <dialog
         android:id="@+id/settings"
         android:name="com.github.emilg1101.budgeting.home.settings.ui.SettingsFragment"
         app:moduleName="home"

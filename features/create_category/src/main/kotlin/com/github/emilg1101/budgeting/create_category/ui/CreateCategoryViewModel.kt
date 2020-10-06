@@ -7,8 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.github.emilg1101.budgeting.create_category.domain.CreateCategoryUseCase
 import com.github.emilg1101.budgeting.core.base.BaseViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
-import com.github.emilg1101.budgeting.emojipicker.OnEmojiPickerListener
-import com.github.emilg1101.budgeting.emojipicker.model.EmojiModel
+import com.github.emilg1101.budgeting.emoji_picker.OnEmojiPickerListener
+import com.github.emilg1101.budgeting.emoji_picker.model.EmojiModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 

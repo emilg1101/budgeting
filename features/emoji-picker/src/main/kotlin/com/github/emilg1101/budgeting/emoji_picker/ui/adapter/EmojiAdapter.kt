@@ -1,12 +1,12 @@
-package com.github.emilg1101.budgeting.emojipicker.ui.adapter
+package com.github.emilg1101.budgeting.emoji_picker.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.github.emilg1101.budgeting.R
-import com.github.emilg1101.budgeting.emojipicker.OnEmojiPickerListener
-import com.github.emilg1101.budgeting.emojipicker.model.EmojiModel
+import com.github.emilg1101.budgeting.emoji_picker.OnEmojiPickerListener
+import com.github.emilg1101.budgeting.emoji_picker.R
+import com.github.emilg1101.budgeting.emoji_picker.model.EmojiModel
 import kotlinx.android.synthetic.main.item_emoji.view.*
 
 class EmojiAdapter : RecyclerView.Adapter<EmojiAdapter.EmojiViewHolder>() {

@@ -5,7 +5,7 @@ import androidx.navigation.ActionOnlyNavDirections
 import com.github.emilg1101.budgeting.core.base.BaseViewModel
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
 import com.github.emilg1101.budgeting.domain.repository.SyncRepository
-import com.github.emilg1101.budgeting.emojipicker.domain.LogOutUseCase
+import com.github.emilg1101.budgeting.home.settings.domain.LogOutUseCase
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import com.github.emilg1101.budgeting.R as R2

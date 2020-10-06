@@ -3,7 +3,7 @@ package com.github.emilg1101.budgeting.create_category.di
 import com.github.emilg1101.budgeting.create_category.ui.CreateCategoryFragment
 import com.github.emilg1101.budgeting.core.di.component.CoreComponent
 import com.github.emilg1101.budgeting.core.di.scope.FeatureScope
-import com.github.emilg1101.budgeting.emojipicker.di.EmojiPickerDependencies
+import com.github.emilg1101.budgeting.emoji_picker.di.EmojiPickerDependencies
 import dagger.Component
 
 @FeatureScope
