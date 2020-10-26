@@ -12,9 +12,10 @@ import com.github.emilg1101.budgeting.core.bind
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelFactory
 import com.github.emilg1101.budgeting.coreComponent
 import com.github.emilg1101.budgeting.create_category.di.DaggerCreateCategoryComponent
-import com.github.emilg1101.budgeting.emojipicker.di.EmojiPickerDependencies
-import com.github.emilg1101.budgeting.emojipicker.di.HasEmojiPickerDependencies
-import com.github.emilg1101.budgeting.emojipicker.ui.EmojiPickerFragment
+import com.github.emilg1101.budgeting.emoji_picker.di.DaggerEmojiPickerComponent
+import com.github.emilg1101.budgeting.emoji_picker.di.EmojiPickerDependencies
+import com.github.emilg1101.budgeting.emoji_picker.di.HasEmojiPickerDependencies
+import com.github.emilg1101.budgeting.emoji_picker.ui.EmojiPickerFragment
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_create_category.*
 import javax.inject.Inject

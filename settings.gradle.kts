@@ -13,6 +13,7 @@ listOf(
     ":features:scanner",
     ":features:create_account",
     ":features:create_category",
+    ":features:emoji-picker",
     ":widgets:widget_core",
     ":widgets:widget_balance",
     ":widgets:widget_accounts",

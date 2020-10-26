@@ -1,20 +1,20 @@
-package com.github.emilg1101.budgeting.emojipicker.ui
+package com.github.emilg1101.budgeting.emoji_picker.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
-import com.github.emilg1101.budgeting.R
+import com.github.emilg1101.budgeting.emoji_picker.R
 import com.github.emilg1101.budgeting.core.base.BottomBarCovering
-import com.github.emilg1101.budgeting.emojipicker.OnEmojiPickerListener
-import com.github.emilg1101.budgeting.emojipicker.di.DaggerEmojiPickerComponent
-import com.github.emilg1101.budgeting.emojipicker.di.HasEmojiPickerDependencies
-import com.github.emilg1101.budgeting.emojipicker.model.EmojiModel
-import com.github.emilg1101.budgeting.emojipicker.ui.adapter.EmojiAdapter
+import com.github.emilg1101.budgeting.emoji_picker.OnEmojiPickerListener
+import com.github.emilg1101.budgeting.emoji_picker.di.DaggerEmojiPickerComponent
+import com.github.emilg1101.budgeting.emoji_picker.di.HasEmojiPickerDependencies
+import com.github.emilg1101.budgeting.emoji_picker.model.EmojiModel
+import com.github.emilg1101.budgeting.emoji_picker.ui.adapter.EmojiAdapter
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_emoji_picker.*
 import javax.inject.Inject
+import com.github.emilg1101.budgeting.core.R as R2
 
 class EmojiPickerFragment : BottomSheetDialogFragment(), BottomBarCovering {
 
@@ -111,6 +111,6 @@ class EmojiPickerFragment : BottomSheetDialogFragment(), BottomBarCovering {
     }
 
     override fun getTheme(): Int {
-        return R.style.AppBottomSheetDialogTheme
+        return R2.style.AppBottomSheetDialogTheme
     }
 }
