@@ -60,6 +60,7 @@ android {
         ":features:scanner",
         ":features:create_account",
         ":features:create_category",
+        ":features:settings",
         ":widgets:widget_balance",
         ":widgets:widget_accounts"
     )
