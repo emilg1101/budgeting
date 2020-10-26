@@ -1,4 +1,4 @@
-package com.github.emilg1101.budgeting.home.settings.ui
+package com.github.emilg1101.budgeting.settings.ui
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -12,8 +12,8 @@ import com.github.emilg1101.budgeting.core.base.BottomBarCovering
 import com.github.emilg1101.budgeting.core.di.viewmodel.ViewModelFactory
 import com.github.emilg1101.budgeting.core.onClick
 import com.github.emilg1101.budgeting.coreComponent
-import com.github.emilg1101.budgeting.home.R
-import com.github.emilg1101.budgeting.home.settings.di.DaggerSettingsComponent
+import com.github.emilg1101.budgeting.settings.di.DaggerSettingsComponent
+import com.github.emilg1101.budgeting.settings.R
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.fragment_settings.*
 import javax.inject.Inject

@@ -83,8 +83,8 @@
 
     <dialog
         android:id="@+id/settings"
-        android:name="com.github.emilg1101.budgeting.home.settings.ui.SettingsFragment"
-        app:moduleName="home"
+        android:name="com.github.emilg1101.budgeting.settings.ui.SettingsFragment"
+        app:moduleName="settings"
         tools:layout="@layout/fragment_settings" >
         <action
             android:id="@+id/action_settings_to_authorization"
